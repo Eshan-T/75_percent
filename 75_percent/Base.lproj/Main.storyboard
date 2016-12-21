@@ -92,7 +92,7 @@
         <!--Item-->
         <scene sceneID="eep-8i-f2T">
             <objects>
-                <viewController id="c8W-6E-4TH" sceneMemberID="viewController">
+                <viewController id="c8W-6E-4TH" customClass="FourthViewController" customModule="_5_percent" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Vzy-dF-N5B"/>
                         <viewControllerLayoutGuide type="bottom" id="t3o-CM-Lc8"/>
@@ -100,6 +100,16 @@
                     <view key="view" contentMode="scaleToFill" id="7o1-Fn-Ma2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" text="fouth View" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="avX-Zy-Sgs">
+                                <rect key="frame" x="83" y="313" width="209.5" height="41.5"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="36"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="jw5-G5-DBq"/>
@@ -112,7 +122,7 @@
         <!--Item-->
         <scene sceneID="Uld-bc-Rmj">
             <objects>
-                <viewController id="wvL-rv-FXL" sceneMemberID="viewController">
+                <viewController id="wvL-rv-FXL" customClass="ThirdViewController" customModule="_5_percent" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xmA-9y-Ml8"/>
                         <viewControllerLayoutGuide type="bottom" id="2Rx-tK-M4U"/>
@@ -120,6 +130,16 @@
                     <view key="view" contentMode="scaleToFill" id="dSG-qG-pXl">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" text="Third View" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="yp0-99-Ehd">
+                                <rect key="frame" x="89" y="286" width="209.5" height="41.5"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="36"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="Jpj-ZS-7Y6"/>
@@ -129,10 +149,10 @@
             </objects>
             <point key="canvasLocation" x="435" y="1061"/>
         </scene>
-        <!--View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="lIi-ED-oag">
             <objects>
-                <viewController id="bpx-RU-cvk" sceneMemberID="viewController">
+                <viewController id="bpx-RU-cvk" customClass="LoginViewController" customModule="_5_percent" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="75K-9i-KZ7"/>
                         <viewControllerLayoutGuide type="bottom" id="XXz-7N-gYv"/>
