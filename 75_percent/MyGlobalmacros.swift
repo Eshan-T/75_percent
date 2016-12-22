@@ -7,3 +7,8 @@
 //
 
 import Foundation
+
+var mainString: String!
+var studName: String!
+var studBranch:  String!
+var studRegNo: String!

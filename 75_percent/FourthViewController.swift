@@ -16,13 +16,17 @@ class FourthViewController: UIViewController {
     
     @IBOutlet var profileBranch: UILabel!
     
+
+    
     @IBAction func logout(_ sender: Any) {
     }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+     profileName.text = studName
+        profileRegNo.text = studRegNo
+        profileBranch.text = studBranch
         // Do any additional setup after loading the view.
     }
 

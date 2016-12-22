@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 class LoginViewController: UIViewController {
 
@@ -17,7 +18,8 @@ class LoginViewController: UIViewController {
         
         var request = URLRequest(url: URL(string: "https://tacos.adityawalvekar.com/show")!)
         request.httpMethod = "POST"
-        let postString = "regno=150911070&bdate=1997-07-01"
+       
+        let postString = "regno=\(regNumber.text!)&bdate=\(dateOfBirth.text!)"
         request.httpBody = postString.data(using: .utf8)
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data, error == nil else {                                                 // check for fundamental networking error
@@ -31,9 +33,16 @@ class LoginViewController: UIViewController {
             }
             
             let responseString = String(data: data, encoding: .utf8)
-            print("responseString = \(responseString!)")  // final response
+            print("responseString = \(responseString!)")
+                                        // final response
+            var json = JSON(data: data)
+            studName = json["User Data"]["Name"].string!
+            studBranch = json["User Data"]["Branch"].string!
+            studRegNo = json["User Data"]["Registration Number"].string!
         }
         task.resume()
+        
+     
         
         
         
@@ -50,6 +59,9 @@ class LoginViewController: UIViewController {
         
         
     }
+    @IBOutlet var loginStatus: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
