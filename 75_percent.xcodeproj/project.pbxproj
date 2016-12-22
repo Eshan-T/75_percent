@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3549BDBE1E0BD7800094BBC4 /* MyGlobalmacros.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3549BDBD1E0BD7800094BBC4 /* MyGlobalmacros.swift */; };
 		35FC68411E0A8ABD00F6BB44 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FC68401E0A8ABD00F6BB44 /* AppDelegate.swift */; };
 		35FC68431E0A8ABD00F6BB44 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FC68421E0A8ABD00F6BB44 /* FirstViewController.swift */; };
 		35FC68451E0A8ABD00F6BB44 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FC68441E0A8ABD00F6BB44 /* SecondViewController.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3549BDBD1E0BD7800094BBC4 /* MyGlobalmacros.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyGlobalmacros.swift; sourceTree = "<group>"; };
 		35FC683D1E0A8ABD00F6BB44 /* 75_percent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 75_percent.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35FC68401E0A8ABD00F6BB44 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		35FC68421E0A8ABD00F6BB44 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 			isa = PBXGroup;
 			children = (
 				35FC68401E0A8ABD00F6BB44 /* AppDelegate.swift */,
+				3549BDBD1E0BD7800094BBC4 /* MyGlobalmacros.swift */,
 				35FC68421E0A8ABD00F6BB44 /* FirstViewController.swift */,
 				35FC68441E0A8ABD00F6BB44 /* SecondViewController.swift */,
 				35FC68461E0A8ABD00F6BB44 /* Main.storyboard */,
@@ -153,6 +156,7 @@
 				35FC68411E0A8ABD00F6BB44 /* AppDelegate.swift in Sources */,
 				35FC68551E0A8D4200F6BB44 /* ThirdViewController.swift in Sources */,
 				35FC68431E0A8ABD00F6BB44 /* FirstViewController.swift in Sources */,
+				3549BDBE1E0BD7800094BBC4 /* MyGlobalmacros.swift in Sources */,
 				35FC68571E0A8D4F00F6BB44 /* FourthViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -313,6 +317,7 @@
 				35FC68531E0A8ABD00F6BB44 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

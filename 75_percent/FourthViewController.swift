@@ -10,6 +10,16 @@ import UIKit
 
 class FourthViewController: UIViewController {
 
+    @IBOutlet var profileName: UILabel!
+    
+    @IBOutlet var profileRegNo: UILabel!
+    
+    @IBOutlet var profileBranch: UILabel!
+    
+    @IBAction func logout(_ sender: Any) {
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
