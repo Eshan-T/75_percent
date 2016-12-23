@@ -8,11 +8,25 @@
 
 import UIKit
 
-class FirstViewController: UIViewController, UITableViewDelegate {
+class FirstViewController: UIViewController, UITableViewDataSource,UITableViewDelegate {
     
     
+    @IBOutlet var attendanceTable: UITableView!
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CellAttendance", for: indexPath)       as! attendanceTableViewCell
+        cell.classBunked.text = "frfrW"
+      //  cell.classBunked.text = attendanceClassesBunked[counter]
+      //  cell.classesTaken.text = attendanceClassesTaken[counter]
+       // counter += 1
+        
+        return cell
+    }
     
     
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 6
+    }
     
     
     

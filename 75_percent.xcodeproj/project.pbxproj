@@ -10,6 +10,8 @@
 		2575D646BD11EF2393D741A1 /* Pods_75_percent.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53C808072EDB632E9469008E /* Pods_75_percent.framework */; };
 		3549BDBE1E0BD7800094BBC4 /* MyGlobalmacros.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3549BDBD1E0BD7800094BBC4 /* MyGlobalmacros.swift */; };
 		35A980E21E0BF4E90098BAE6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35A980E11E0BF4E90098BAE6 /* Main.storyboard */; };
+		35B228961E0D9DEA00F87B79 /* attendanceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B228951E0D9DEA00F87B79 /* attendanceTableViewCell.swift */; };
+		35B228981E0DA3BC00F87B79 /* marksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B228971E0DA3BC00F87B79 /* marksTableViewCell.swift */; };
 		35FC68411E0A8ABD00F6BB44 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FC68401E0A8ABD00F6BB44 /* AppDelegate.swift */; };
 		35FC68431E0A8ABD00F6BB44 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FC68421E0A8ABD00F6BB44 /* FirstViewController.swift */; };
 		35FC68451E0A8ABD00F6BB44 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FC68441E0A8ABD00F6BB44 /* SecondViewController.swift */; };
@@ -23,6 +25,8 @@
 /* Begin PBXFileReference section */
 		3549BDBD1E0BD7800094BBC4 /* MyGlobalmacros.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyGlobalmacros.swift; sourceTree = "<group>"; };
 		35A980E11E0BF4E90098BAE6 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		35B228951E0D9DEA00F87B79 /* attendanceTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = attendanceTableViewCell.swift; sourceTree = "<group>"; };
+		35B228971E0DA3BC00F87B79 /* marksTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = marksTableViewCell.swift; sourceTree = "<group>"; };
 		35FC683D1E0A8ABD00F6BB44 /* 75_percent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 75_percent.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35FC68401E0A8ABD00F6BB44 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		35FC68421E0A8ABD00F6BB44 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -79,14 +83,16 @@
 		35FC683F1E0A8ABD00F6BB44 /* 75_percent */ = {
 			isa = PBXGroup;
 			children = (
-				35FC68401E0A8ABD00F6BB44 /* AppDelegate.swift */,
 				3549BDBD1E0BD7800094BBC4 /* MyGlobalmacros.swift */,
-				35FC68421E0A8ABD00F6BB44 /* FirstViewController.swift */,
-				35FC68441E0A8ABD00F6BB44 /* SecondViewController.swift */,
+				35FC68401E0A8ABD00F6BB44 /* AppDelegate.swift */,
 				35A980E11E0BF4E90098BAE6 /* Main.storyboard */,
-				35FC68581E0A8EA700F6BB44 /* LoginViewController.swift */,
+				35FC68421E0A8ABD00F6BB44 /* FirstViewController.swift */,
+				35B228951E0D9DEA00F87B79 /* attendanceTableViewCell.swift */,
+				35FC68441E0A8ABD00F6BB44 /* SecondViewController.swift */,
+				35B228971E0DA3BC00F87B79 /* marksTableViewCell.swift */,
 				35FC68541E0A8D4200F6BB44 /* ThirdViewController.swift */,
 				35FC68561E0A8D4F00F6BB44 /* FourthViewController.swift */,
+				35FC68581E0A8EA700F6BB44 /* LoginViewController.swift */,
 				35FC68491E0A8ABD00F6BB44 /* Assets.xcassets */,
 				35FC684B1E0A8ABD00F6BB44 /* LaunchScreen.storyboard */,
 				35FC684E1E0A8ABD00F6BB44 /* Info.plist */,
@@ -228,6 +234,8 @@
 			files = (
 				35FC68591E0A8EA700F6BB44 /* LoginViewController.swift in Sources */,
 				35FC68451E0A8ABD00F6BB44 /* SecondViewController.swift in Sources */,
+				35B228981E0DA3BC00F87B79 /* marksTableViewCell.swift in Sources */,
+				35B228961E0D9DEA00F87B79 /* attendanceTableViewCell.swift in Sources */,
 				35FC68411E0A8ABD00F6BB44 /* AppDelegate.swift in Sources */,
 				35FC68551E0A8D4200F6BB44 /* ThirdViewController.swift in Sources */,
 				35FC68431E0A8ABD00F6BB44 /* FirstViewController.swift in Sources */,

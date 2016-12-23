@@ -21,6 +21,7 @@ class LoginViewController: UIViewController {
        
         let postString = "regno=\(regNumber.text!)&bdate=\(dateOfBirth.text!)"
         request.httpBody = postString.data(using: .utf8)
+       
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data, error == nil else {                                                 // check for fundamental networking error
                 print("error=\(error)")
@@ -39,23 +40,34 @@ class LoginViewController: UIViewController {
             studName = json["User Data"]["Name"].string!
             studBranch = json["User Data"]["Branch"].string!
             studRegNo = json["User Data"]["Registration Number"].string!
+            var crap: Array = json["Attendance"].array!
+            attendanceSubjectsNumber = crap.count
+            for index in 0...(crap.count-1)
+            {  var temp: String = json["Attendance"][index]["Name"].string!
+                
+                attendanceSubjectNames.append(temp)
+                attendanceClassesTaken.append(json["Attendance"][index]["Classes"].string!)
+                attendanceClassesAttended.append(json["Attendance"][index]["Attended"].string!)
+                attendanceClassesBunked.append(json["Attendance"][index]["Absent"].string!)
+                attendancePercentage.append(json["Attendance"][index]["%"].string!)
+                attendanceDate.append(json["Attendance"][index]["Updated"].string!)
+                
+            }
+        
+        print(attendanceSubjectNames)
+            print(attendanceClassesTaken)
+            print(attendanceClassesAttended)
+            print(attendanceClassesBunked)
+            print(attendancePercentage)
+            print(attendanceDate)
+            
+
         }
         task.resume()
         
+        performSegue(withIdentifier: "mainsegue", sender: nil)
      
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+     
         
         
     }
