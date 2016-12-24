@@ -20,4 +20,16 @@ var attendanceClassesAttended = [String]()
 var attendanceClassesBunked = [String]()
 var attendancePercentage = [String]()
 var attendanceDate = [String]()
-var counter = 0
+var marksSessionalOneSubject = [String]()
+var marksSessionalOneSubjectCode = [String]()
+var marksSessionalOneMarks = [String]()
+var marksSessionalTwoSubject = [String]()
+var marksSessionalTwoSubjectCode = [String]()
+var marksSessionalTwoMarks = [String]()
+var marksSessionalThreeSubject = [String]()
+var marksSessionalThreeSubjectCode = [String]()
+var marksSessionalThreeMarks = [String]()
+var numberOfAssessments: Int!
+var numberOfInternallyMarkedSubjects: Int!
+var subjectInternalTotalArray = [Double]()
+

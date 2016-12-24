@@ -15,17 +15,22 @@ class FirstViewController: UIViewController, UITableViewDataSource,UITableViewDe
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CellAttendance", for: indexPath)       as! attendanceTableViewCell
-        cell.classBunked.text = "frfrW"
-      //  cell.classBunked.text = attendanceClassesBunked[counter]
-      //  cell.classesTaken.text = attendanceClassesTaken[counter]
-       // counter += 1
+        
+       cell.classBunked.text = attendanceClassesBunked[indexPath.row]
+      cell.classesTaken.text = attendanceClassesTaken[indexPath.row]
+        cell.classesAttended.text = attendanceClassesAttended[indexPath.row]
+        cell.subjectName.text = attendanceSubjectNames[indexPath.row]
+        cell.subjectDate.text = attendanceDate[indexPath.row]
+        cell.subjectAttenPercentage.text = attendancePercentage[indexPath.row]
+        
+        
         
         return cell
     }
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 6
+       return attendanceSubjectsNumber
     }
     
     
