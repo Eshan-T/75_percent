@@ -106,7 +106,286 @@ class LoginViewController: UIViewController {
                     }
 
             }
+            
+            //for grade stats
+            
+            var temp3: Dictionary = json["Grades"]["Details"].dictionary!
+            numberOfSems =  temp3.count
+            switch numberOfSems{
+            case 8 :
+                var sem8noOfSubs = json["Grades"]["Details"]["Semester 8"]["Grades"].count
+                for index in 0...sem8noOfSubs-1
+                {
+                    sem8Subjects.append(json["Grades"]["Details"]["Semester 8"]["Grades"][index]["Subject"].string!)
+                    sem8CreditsForSubjects.append(json["Grades"]["Details"]["Semester 8"]["Grades"][index]["Credits"].string!)
+                    sem8Grades.append(json["Grades"]["Details"]["Semester 8"]["Grades"][index]["Grade"].string!)
+                    
+                   
+                    
+                    
+                }
+                sem8GPA = json["Grades"]["Details"]["Semester 8"]["GPA"].string!
+                sem8Credits = json["Grades"]["Details"]["Semester 8"]["NoOfCredits"].string!
+                sumOfGpas = sumOfGpas + Double(sem8GPA)!
+                sumOfCredits = sumOfCredits + Int(sem8Credits)!
+                var sem8GPADouble = Double(sem8GPA)!
+                if sem8GPADouble > maxGPA
+                {
+                    maxGPA = sem8GPADouble
+                    
+                    
+                    
+                }
+
+                if sem8GPADouble < leastGPA
+                {
+                    leastGPA = sem8GPADouble
+                    
+                    
+                }
+                fallthrough
+            case 7 :
+                var sem7noOfSubs = json["Grades"]["Details"]["Semester 7"]["Grades"].count
+                for index in 0...sem7noOfSubs-1
+                {
+                    sem7Subjects.append(json["Grades"]["Details"]["Semester 7"]["Grades"][index]["Subject"].string!)
+                    sem7CreditsForSubjects.append(json["Grades"]["Details"]["Semester 7"]["Grades"][index]["Credits"].string!)
+                    sem7Grades.append(json["Grades"]["Details"]["Semester 7"]["Grades"][index]["Grade"].string!)
+                   
+                    
+                    
+                }
+                sem7GPA = json["Grades"]["Details"]["Semester 7"]["GPA"].string!
+                sem7Credits = json["Grades"]["Details"]["Semester 7"]["NoOfCredits"].string!
+
+                sumOfGpas = sumOfGpas + Double(sem7GPA)!
+                sumOfCredits = sumOfCredits + Int(sem7Credits)!
                 
+                var sem7GPADouble = Double(sem7GPA)!
+                if sem7GPADouble > maxGPA
+                {
+                    maxGPA = sem7GPADouble
+                    
+                    
+                    
+                }
+                
+                if sem7GPADouble < leastGPA
+                {
+                    leastGPA = sem7GPADouble
+                    
+                    
+                }
+
+
+                fallthrough
+              
+            case 6 :
+                var sem6noOfSubs = json["Grades"]["Details"]["Semester 6"]["Grades"].count
+                for index in 0...sem6noOfSubs-1
+                {
+                    sem6Subjects.append(json["Grades"]["Details"]["Semester 6"]["Grades"][index]["Subject"].string!)
+                    sem6CreditsForSubjects.append(json["Grades"]["Details"]["Semester 6"]["Grades"][index]["Credits"].string!)
+                    sem6Grades.append(json["Grades"]["Details"]["Semester 6"]["Grades"][index]["Grade"].string!)
+                    
+                    
+                }
+                sem6GPA = json["Grades"]["Details"]["Semester 6"]["GPA"].string!
+                sem6Credits = json["Grades"]["Details"]["Semester 6"]["NoOfCredits"].string!
+
+                sumOfGpas = sumOfGpas + Double(sem6GPA)!
+                sumOfCredits = sumOfCredits + Int(sem6Credits)!
+                var sem6GPADouble = Double(sem6GPA)!
+                if sem6GPADouble > maxGPA
+                {
+                    maxGPA = sem6GPADouble
+                    
+                    
+                    
+                }
+                
+                if sem6GPADouble < leastGPA
+                {
+                    leastGPA = sem6GPADouble
+                    
+                    
+                }
+
+
+                fallthrough
+                
+            case 5 :
+                var sem5noOfSubs = json["Grades"]["Details"]["Semester 5"]["Grades"].count
+                for index in 0...sem5noOfSubs-1
+                {
+                    sem5Subjects.append(json["Grades"]["Details"]["Semester 5"]["Grades"][index]["Subject"].string!)
+                    sem5CreditsForSubjects.append(json["Grades"]["Details"]["Semester 5"]["Grades"][index]["Credits"].string!)
+                    sem5Grades.append(json["Grades"]["Details"]["Semester 5"]["Grades"][index]["Grade"].string!)
+                    
+                    
+                    
+                }
+                sem5GPA = json["Grades"]["Details"]["Semester 5"]["GPA"].string!
+                sem5Credits = json["Grades"]["Details"]["Semester 5"]["NoOfCredits"].string!
+                sumOfGpas = sumOfGpas + Double(sem5GPA)!
+                sumOfCredits = sumOfCredits + Int(sem5Credits)!
+                var sem5GPADouble = Double(sem5GPA)!
+                if sem5GPADouble > maxGPA
+                {
+                    maxGPA = sem5GPADouble
+                    
+                    
+                    
+                }
+                
+                if sem5GPADouble < leastGPA
+                {
+                    leastGPA = sem5GPADouble
+                    
+                    
+                }
+
+
+                fallthrough
+                
+            case 4 :
+                var sem4noOfSubs = json["Grades"]["Details"]["Semester 4"]["Grades"].count
+                for index in 0...sem4noOfSubs-1
+                {
+                    sem4Subjects.append(json["Grades"]["Details"]["Semester 4"]["Grades"][index]["Subject"].string!)
+                    sem4CreditsForSubjects.append(json["Grades"]["Details"]["Semester 4"]["Grades"][index]["Credits"].string!)
+                    sem4Grades.append(json["Grades"]["Details"]["Semester 4"]["Grades"][index]["Grade"].string!)
+                    
+                    
+                    
+                }
+                sem4GPA = json["Grades"]["Details"]["Semester 4"]["GPA"].string!
+                sem4Credits = json["Grades"]["Details"]["Semester 4"]["NoOfCredits"].string!
+                sumOfGpas = sumOfGpas + Double(sem4GPA)!
+                sumOfCredits = sumOfCredits + Int(sem4Credits)!
+                var sem4GPADouble = Double(sem4GPA)!
+                if sem4GPADouble > maxGPA
+                {
+                    maxGPA = sem4GPADouble
+                    
+                    
+                    
+                }
+                
+                if sem4GPADouble < leastGPA
+                {
+                    leastGPA = sem4GPADouble
+                    
+                    
+                }
+
+
+                fallthrough
+            case 3 :
+                var sem3noOfSubs = json["Grades"]["Details"]["Semester 3"]["Grades"].count
+                for index in 0...sem3noOfSubs-1
+                {
+                    sem3Subjects.append(json["Grades"]["Details"]["Semester 3"]["Grades"][index]["Subject"].string!)
+                    sem3CreditsForSubjects.append(json["Grades"]["Details"]["Semester 3"]["Grades"][index]["Credits"].string!)
+                    sem3Grades.append(json["Grades"]["Details"]["Semester 3"]["Grades"][index]["Grade"].string!)
+                    
+                   
+                    
+                }
+                sem3GPA = json["Grades"]["Details"]["Semester 3"]["GPA"].string!
+                sem3Credits = json["Grades"]["Details"]["Semester 3"]["NoOfCredits"].string!
+                sumOfGpas = sumOfGpas + Double(sem3GPA)!
+                sumOfCredits = sumOfCredits + Int(sem3Credits)!
+                var sem3GPADouble = Double(sem3GPA)!
+                if sem3GPADouble > maxGPA
+                {
+                    maxGPA = sem3GPADouble
+                    
+                    
+                    
+                }
+                
+                if sem3GPADouble < leastGPA
+                {
+                    leastGPA = sem3GPADouble
+                    
+                    
+                }
+
+
+                fallthrough
+                
+            case 2:
+                var sem2noOfSubs = json["Grades"]["Details"]["Semester 2"]["Grades"].count
+                for index in 0...sem2noOfSubs-1
+                {
+                    sem2Subjects.append(json["Grades"]["Details"]["Semester 2"]["Grades"][index]["Subject"].string!)
+                    sem2CreditsForSubjects.append(json["Grades"]["Details"]["Semester 2"]["Grades"][index]["Credits"].string!)
+                    sem2Grades.append(json["Grades"]["Details"]["Semester 2"]["Grades"][index]["Grade"].string!)
+                    
+                    
+                    
+                }
+                sem2GPA = json["Grades"]["Details"]["Semester 2"]["GPA"].string!
+                sem2Credits = json["Grades"]["Details"]["Semester 2"]["NoOfCredits"].string!
+                sumOfGpas = sumOfGpas + Double(sem2GPA)!
+                sumOfCredits = sumOfCredits + Int(sem2Credits)!
+                var sem2GPADouble = Double(sem2GPA)!
+                if sem2GPADouble > maxGPA
+                {
+                    maxGPA = sem2GPADouble
+                    
+                    
+                    
+                }
+                
+                if sem2GPADouble < leastGPA
+                {
+                    leastGPA = sem2GPADouble
+                    
+                    
+                }
+
+
+                fallthrough
+                
+            case 1:
+                var sem1noOfSubs = json["Grades"]["Details"]["Semester 1"]["Grades"].count
+                for index in 0...sem1noOfSubs-1
+                {
+                    sem1Subjects.append(json["Grades"]["Details"]["Semester 1"]["Grades"][index]["Subject"].string!)
+                    sem1CreditsForSubjects.append(json["Grades"]["Details"]["Semester 1"]["Grades"][index]["Credits"].string!)
+                    sem1Grades.append(json["Grades"]["Details"]["Semester 1"]["Grades"][index]["Grade"].string!)
+                    
+                    
+                    
+                }
+                sem1GPA = json["Grades"]["Details"]["Semester 1"]["GPA"].string!
+                sem1Credits = json["Grades"]["Details"]["Semester 1"]["NoOfCredits"].string!
+                sumOfGpas = sumOfGpas + Double(sem1GPA)!
+                sumOfCredits = sumOfCredits + Int(sem1Credits)!
+                var sem1GPADouble = Double(sem1GPA)!
+                if sem1GPADouble > maxGPA
+                {
+                    maxGPA = sem1GPADouble
+                    
+                    
+                    
+                }
+                
+                if sem1GPADouble < leastGPA
+                {
+                    leastGPA = sem1GPADouble
+                    
+                    
+                }
+
+
+                
+            default :
+                print("nope" )
+            }
+            
            
             
         
@@ -117,6 +396,8 @@ class LoginViewController: UIViewController {
             print(attendancePercentage)
             print(attendanceDate)*/
             
+            CGPA = sumOfGpas/Double(numberOfSems)
+
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5){
                  MBProgressHUD.hideAllHUDs(for: self.view, animated:true)
                 
