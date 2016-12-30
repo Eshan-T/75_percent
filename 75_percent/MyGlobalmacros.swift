@@ -102,7 +102,7 @@ var creditLabelsforsem7 = [UILabel]()
 var subLabelsforsem8 = [UILabel]()
 var gradeLabelsforsem8 = [UILabel]()
 var creditLabelsforsem8 = [UILabel]()
-
+var regNoOfDigits : Int = 0
 
 
 

@@ -1,3 +1,4 @@
+
 //
 //  LoginViewController.swift
 //  75_percent
@@ -10,10 +11,30 @@ import UIKit
 import SwiftyJSON
 import MBProgressHUD
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet var regNumber: UITextField!
     @IBOutlet var dateOfBirth: UITextField!
+    
+    @IBAction func userTyping(_ sender: Any) {
+        regNoOfDigits = regNoOfDigits + 1
+        if regNoOfDigits != 9
+        
+        {
+            regNumberCheck.text = "Invalid format"
+            
+        }
+        else
+        {
+        
+            regNumberCheck.text = ""
+        }
+    }
+    
+    
+    
+    @IBOutlet var regNumberCheck: UILabel!
+    
     @IBAction func loginButton(_ sender: Any) {
         
         MBProgressHUD.showAdded(to: self.view, animated: true)
@@ -41,6 +62,8 @@ class LoginViewController: UIViewController {
             let responseString = String(data: data, encoding: .utf8)
             print("responseString = \(responseString!)")
                                         // final response
+            
+            
             var json = JSON(data: data)
             studName = json["User Data"]["Name"].string!
             studBranch = json["User Data"]["Branch"].string!
@@ -417,12 +440,17 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+  regNumber.delegate = self
+        
 
+        
         // Do any additional setup after loading the view.
     }
 
     
-    
+    func textFieldDidChange(regNumber: UITextField) {
+        regNumberCheck.text = "shit"
+    }
     
     
     

@@ -559,6 +559,9 @@
                                         <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="userTyping:" destination="bpx-RU-cvk" eventType="editingChanged" id="tpl-yg-IaR"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Date of birth" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iHG-4a-G0a">
                                 <rect key="frame" x="93" y="429" width="189" height="30"/>
@@ -647,6 +650,7 @@
                         <outlet property="dateOfBirth" destination="iHG-4a-G0a" id="06b-GD-Kfe"/>
                         <outlet property="loginStatus" destination="5K1-wy-Ipw" id="qz4-6d-kdo"/>
                         <outlet property="regNumber" destination="GSM-ag-YcK" id="fCB-iE-57v"/>
+                        <outlet property="regNumberCheck" destination="RNQ-bj-bI8" id="Ddj-3G-Hjd"/>
                         <segue destination="49e-Tb-3d3" kind="show" identifier="mainsegue" id="qlq-1Q-QZu"/>
                     </connections>
                 </viewController>
