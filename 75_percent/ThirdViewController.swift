@@ -15,82 +15,166 @@ class ThirdViewController: UIViewController ,UITableViewDelegate, UITableViewDat
     
     
     @IBOutlet var cgpaLabel: UILabel!
+    
+    @IBOutlet var totalCreditsLabel: UILabel!
+    
+    @IBOutlet var highestGPALabel: UILabel!
+    
+    @IBOutlet var lowestGPALabel: UILabel!
+    
+    
+    
+    
    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return numberOfSems
    }
     
-    func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return  44;
-    }
+   
+   
+    
     
    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    
+    
     let cell = tableView.dequeueReusableCell(withIdentifier: "CellCGPA", for: indexPath)       as! gradeTableViewCell
+    
+    
+
        switch indexPath.row
+        
        {
         
-       case 7 :
         
-        for index in (0...sem8Subjects.count-1)
+        
+       case 7 :
+        cell.whichSem.text = "Semester 8"
+        cell.semGPA.text = sem8GPA
+        cell.semCredits.text = sem8Credits
+
+        
+        if subLabelsforsem8.count == 0
+        {  for index in (0...sem8Subjects.count-1)
         {
+            
             let textLabel1 = UILabel()
             textLabel1.text = sem8Subjects[index]
             textLabel1.backgroundColor = UIColor.white
             textLabel1.widthAnchor.constraint(equalToConstant: self.view.frame.width).isActive = true
-            textLabel1.heightAnchor.constraint(equalToConstant: 10.0).isActive = true
+            subLabelsforsem8.append(textLabel1)
+            // textLabel1.heightAnchor.constraint(equalToConstant: 20.0).isActive = true
             let textLabel2 = UILabel()
             textLabel2.text = sem8Grades[index]
             textLabel2.backgroundColor = UIColor.white
             textLabel2.widthAnchor.constraint(equalToConstant: self.view.frame.width).isActive = true
-            textLabel2.heightAnchor.constraint(equalToConstant: 20.0).isActive = true
+            gradeLabelsforsem8.append(textLabel2)
+            //   textLabel2.heightAnchor.constraint(equalToConstant: 20.0).isActive = true
             let textLabel3 = UILabel()
-            textLabel3.text = sem8CreditsForSubjects[index]
+            textLabel3.text = sem8CreditsForSubjects[index] + "credits"
             textLabel3.backgroundColor = UIColor.white
             textLabel3.widthAnchor.constraint(equalToConstant: self.view.frame.width).isActive = true
-            textLabel3.heightAnchor.constraint(equalToConstant: 20.0).isActive = true
+            // textLabel3.heightAnchor.constraint(equalToConstant: 20.0).isActive = true
+            creditLabelsforsem8.append(textLabel3)
             
             
             
             
-            cell.subjectListView.addArrangedSubview(textLabel1)
-            cell.gradeListView.addArrangedSubview(textLabel2)
-            cell.creditListView.addArrangedSubview(textLabel3)
+            cell.subjectListView.addArrangedSubview(subLabelsforsem8[index])
+            cell.gradeListView.addArrangedSubview(gradeLabelsforsem8[index])
+            cell.creditListView.addArrangedSubview(creditLabelsforsem8[index])
+            
+            
+            
+            
+            
+            
+            
+            }}
+            
+            
+        else {
+            for index in (0...sem8Subjects.count-1)
+            {
+                
+                subLabelsforsem8[index].text = sem8Subjects[index]
+                gradeLabelsforsem8[index].text =  sem8Grades[index]
+                creditLabelsforsem8[index].text = sem8CreditsForSubjects[index] + "credits"
+           
+                
+                
+            }
             
             
             
             
             
         }
-        
         break
         
         
+        
        case 6:
+        cell.whichSem.text = "Semester 7"
+        cell.semGPA.text = sem7GPA
+        cell.semCredits.text = sem7Credits
+
         
-        
-        for index in (0...sem7Subjects.count-1)
+        if subLabelsforsem7.count == 0
+        {  for index in (0...sem7Subjects.count-1)
         {
+            
             let textLabel1 = UILabel()
             textLabel1.text = sem7Subjects[index]
             textLabel1.backgroundColor = UIColor.white
             textLabel1.widthAnchor.constraint(equalToConstant: self.view.frame.width).isActive = true
-            textLabel1.heightAnchor.constraint(equalToConstant: 20.0).isActive = true
+            subLabelsforsem7.append(textLabel1)
+            // textLabel1.heightAnchor.constraint(equalToConstant: 20.0).isActive = true
             let textLabel2 = UILabel()
             textLabel2.text = sem7Grades[index]
             textLabel2.backgroundColor = UIColor.white
             textLabel2.widthAnchor.constraint(equalToConstant: self.view.frame.width).isActive = true
-            textLabel2.heightAnchor.constraint(equalToConstant: 20.0).isActive = true
+            gradeLabelsforsem7.append(textLabel2)
+            //   textLabel2.heightAnchor.constraint(equalToConstant: 20.0).isActive = true
             let textLabel3 = UILabel()
-            textLabel3.text = sem7CreditsForSubjects[index]
+            textLabel3.text = sem7CreditsForSubjects[index] + "credits"
             textLabel3.backgroundColor = UIColor.white
             textLabel3.widthAnchor.constraint(equalToConstant: self.view.frame.width).isActive = true
-            textLabel3.heightAnchor.constraint(equalToConstant: 20.0).isActive = true
+            // textLabel3.heightAnchor.constraint(equalToConstant: 20.0).isActive = true
+            creditLabelsforsem7.append(textLabel3)
             
             
             
             
-            cell.subjectListView.addArrangedSubview(textLabel1)
-            cell.gradeListView.addArrangedSubview(textLabel2)
-            cell.creditListView.addArrangedSubview(textLabel3)
+            cell.subjectListView.addArrangedSubview(subLabelsforsem7[index])
+            cell.gradeListView.addArrangedSubview(gradeLabelsforsem7[index])
+            cell.creditListView.addArrangedSubview(creditLabelsforsem7[index])
+            
+            
+            
+            
+            
+            
+            
+            }}
+            
+            
+        else {
+            for index in (0...sem7Subjects.count-1)
+            {
+                
+                subLabelsforsem7[index].text = sem7Subjects[index]
+                gradeLabelsforsem7[index].text =  sem7Grades[index]
+                creditLabelsforsem7[index].text = sem7CreditsForSubjects[index]+"credits"
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+            }
             
             
             
@@ -98,35 +182,73 @@ class ThirdViewController: UIViewController ,UITableViewDelegate, UITableViewDat
             
         }
         break
+        
 
         
        case 5:
         
+        cell.whichSem.text = "Semester 6"
+        cell.semGPA.text = sem6GPA
+        cell.semCredits.text = sem6Credits
+
         
-        for index in (0...sem6Subjects.count-1)
+        if subLabelsforsem6.count == 0
+        {  for index in (0...sem6Subjects.count-1)
         {
+            
             let textLabel1 = UILabel()
             textLabel1.text = sem6Subjects[index]
             textLabel1.backgroundColor = UIColor.white
             textLabel1.widthAnchor.constraint(equalToConstant: self.view.frame.width).isActive = true
-            textLabel1.heightAnchor.constraint(equalToConstant: 20.0).isActive = true
+            subLabelsforsem6.append(textLabel1)
+            // textLabel1.heightAnchor.constraint(equalToConstant: 20.0).isActive = true
             let textLabel2 = UILabel()
             textLabel2.text = sem6Grades[index]
             textLabel2.backgroundColor = UIColor.white
             textLabel2.widthAnchor.constraint(equalToConstant: self.view.frame.width).isActive = true
-            textLabel2.heightAnchor.constraint(equalToConstant: 20.0).isActive = true
+            gradeLabelsforsem6.append(textLabel2)
+            //   textLabel2.heightAnchor.constraint(equalToConstant: 20.0).isActive = true
             let textLabel3 = UILabel()
-            textLabel3.text = sem6CreditsForSubjects[index]
+            textLabel3.text = sem6CreditsForSubjects[index]+"credits"
             textLabel3.backgroundColor = UIColor.white
             textLabel3.widthAnchor.constraint(equalToConstant: self.view.frame.width).isActive = true
-            textLabel3.heightAnchor.constraint(equalToConstant: 20.0).isActive = true
+            // textLabel3.heightAnchor.constraint(equalToConstant: 20.0).isActive = true
+            creditLabelsforsem6.append(textLabel3)
             
             
             
             
-            cell.subjectListView.addArrangedSubview(textLabel1)
-            cell.gradeListView.addArrangedSubview(textLabel2)
-            cell.creditListView.addArrangedSubview(textLabel3)
+            cell.subjectListView.addArrangedSubview(subLabelsforsem6[index])
+            cell.gradeListView.addArrangedSubview(gradeLabelsforsem6[index])
+            cell.creditListView.addArrangedSubview(creditLabelsforsem6[index])
+            
+            
+            
+            
+            
+            
+            
+            }}
+            
+            
+        else {
+            for index in (0...sem6Subjects.count-1)
+            {
+                
+                subLabelsforsem6[index].text = sem6Subjects[index]
+                gradeLabelsforsem6[index].text =  sem6Grades[index]
+                creditLabelsforsem6[index].text = sem6CreditsForSubjects[index]+"credits"
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+            }
             
             
             
@@ -134,35 +256,145 @@ class ThirdViewController: UIViewController ,UITableViewDelegate, UITableViewDat
             
         }
         break
+        
+
 
         
        case 4:
         
+        cell.whichSem.text = "Semester 5"
+        cell.semGPA.text = sem5GPA
+        cell.semCredits.text = sem5Credits
+
         
-        for index in (0...sem5Subjects.count-1)
+        if subLabelsforsem5.count == 0
+        {  for index in (0...sem5Subjects.count-1)
         {
+            
             let textLabel1 = UILabel()
             textLabel1.text = sem5Subjects[index]
             textLabel1.backgroundColor = UIColor.white
             textLabel1.widthAnchor.constraint(equalToConstant: self.view.frame.width).isActive = true
-            textLabel1.heightAnchor.constraint(equalToConstant: 20.0).isActive = true
+            subLabelsforsem5.append(textLabel1)
+            // textLabel1.heightAnchor.constraint(equalToConstant: 20.0).isActive = true
             let textLabel2 = UILabel()
             textLabel2.text = sem5Grades[index]
             textLabel2.backgroundColor = UIColor.white
             textLabel2.widthAnchor.constraint(equalToConstant: self.view.frame.width).isActive = true
-            textLabel2.heightAnchor.constraint(equalToConstant: 20.0).isActive = true
+            gradeLabelsforsem5.append(textLabel2)
+            //   textLabel2.heightAnchor.constraint(equalToConstant: 20.0).isActive = true
             let textLabel3 = UILabel()
-            textLabel3.text = sem5CreditsForSubjects[index]
+            textLabel3.text = sem5CreditsForSubjects[index]+"credits"
             textLabel3.backgroundColor = UIColor.white
             textLabel3.widthAnchor.constraint(equalToConstant: self.view.frame.width).isActive = true
-            textLabel3.heightAnchor.constraint(equalToConstant: 20.0).isActive = true
+            // textLabel3.heightAnchor.constraint(equalToConstant: 20.0).isActive = true
+            creditLabelsforsem5.append(textLabel3)
             
             
             
             
-            cell.subjectListView.addArrangedSubview(textLabel1)
-            cell.gradeListView.addArrangedSubview(textLabel2)
-            cell.creditListView.addArrangedSubview(textLabel3)
+            cell.subjectListView.addArrangedSubview(subLabelsforsem5[index])
+            cell.gradeListView.addArrangedSubview(gradeLabelsforsem5[index])
+            cell.creditListView.addArrangedSubview(creditLabelsforsem5[index])
+            
+            
+            
+            
+            
+            
+            
+            }}
+            
+            
+        else {
+            for index in (0...sem5Subjects.count-1)
+            {
+                
+                subLabelsforsem5[index].text = sem5Subjects[index]
+                gradeLabelsforsem5[index].text =  sem5Grades[index]
+                creditLabelsforsem5[index].text = sem5CreditsForSubjects[index]+"credits"
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+            }
+            
+            
+            
+            
+            
+        }
+        break
+        
+
+       case 3:
+        cell.whichSem.text = "Semester 4"
+        cell.semGPA.text = sem4GPA
+        cell.semCredits.text = sem4Credits
+
+        if subLabelsforsem4.count == 0
+        {  for index in (0...sem4Subjects.count-1)
+        {
+            
+            let textLabel1 = UILabel()
+            textLabel1.text = sem4Subjects[index]
+            textLabel1.backgroundColor = UIColor.white
+            textLabel1.widthAnchor.constraint(equalToConstant: self.view.frame.width).isActive = true
+            subLabelsforsem4.append(textLabel1)
+            // textLabel1.heightAnchor.constraint(equalToConstant: 20.0).isActive = true
+            let textLabel2 = UILabel()
+            textLabel2.text = sem1Grades[index]
+            textLabel2.backgroundColor = UIColor.white
+            textLabel2.widthAnchor.constraint(equalToConstant: self.view.frame.width).isActive = true
+            gradeLabelsforsem4.append(textLabel2)
+            //   textLabel2.heightAnchor.constraint(equalToConstant: 20.0).isActive = true
+            let textLabel3 = UILabel()
+            textLabel3.text = sem4CreditsForSubjects[index]+"credits"
+            textLabel3.backgroundColor = UIColor.white
+            textLabel3.widthAnchor.constraint(equalToConstant: self.view.frame.width).isActive = true
+            // textLabel3.heightAnchor.constraint(equalToConstant: 20.0).isActive = true
+            creditLabelsforsem4.append(textLabel3)
+            
+            
+            
+            
+            cell.subjectListView.addArrangedSubview(subLabelsforsem4[index])
+            cell.gradeListView.addArrangedSubview(gradeLabelsforsem4[index])
+            cell.creditListView.addArrangedSubview(creditLabelsforsem4[index])
+            
+            
+            
+            
+            
+            
+            
+            }}
+            
+            
+        else {
+            for index in (0...sem4Subjects.count-1)
+            {
+                
+                subLabelsforsem4[index].text = sem4Subjects[index]
+                gradeLabelsforsem4[index].text =  sem4Grades[index]
+                creditLabelsforsem4[index].text = sem4CreditsForSubjects[index]+"credits"
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+            }
             
             
             
@@ -171,108 +403,149 @@ class ThirdViewController: UIViewController ,UITableViewDelegate, UITableViewDat
         }
         break
 
-       case 3:
-        
-        for index in (0...sem8Subjects.count-1)
-        {
-            let textLabel1 = UILabel()
-            textLabel1.text = sem4Subjects[index]
-            textLabel1.backgroundColor = UIColor.white
-            textLabel1.widthAnchor.constraint(equalToConstant: self.view.frame.width).isActive = true
-            textLabel1.heightAnchor.constraint(equalToConstant: 20.0).isActive = true
-            let textLabel2 = UILabel()
-            textLabel2.text = sem4Grades[index]
-            textLabel2.backgroundColor = UIColor.white
-            textLabel2.widthAnchor.constraint(equalToConstant: self.view.frame.width).isActive = true
-            textLabel2.heightAnchor.constraint(equalToConstant: 20.0).isActive = true
-            let textLabel3 = UILabel()
-            textLabel3.text = sem4CreditsForSubjects[index]
-            textLabel3.backgroundColor = UIColor.white
-            textLabel3.widthAnchor.constraint(equalToConstant: self.view.frame.width).isActive = true
-            textLabel3.heightAnchor.constraint(equalToConstant: 20.0).isActive = true
-            
-            
-            
-            
-            cell.subjectListView.addArrangedSubview(textLabel1)
-            cell.gradeListView.addArrangedSubview(textLabel2)
-            cell.creditListView.addArrangedSubview(textLabel3)
-            
-            
-            
-            
-            
-        }
-        
-        break
 
         
         
        case 2:
         
-        for index in (0...sem3Subjects.count-1)
+        cell.whichSem.text = "Semester 3"
+        cell.semGPA.text = sem3GPA
+        cell.semCredits.text = sem3Credits
+
+        if subLabelsforsem3.count == 0
+        {  for index in (0...sem3Subjects.count-1)
         {
+            
             let textLabel1 = UILabel()
             textLabel1.text = sem3Subjects[index]
             textLabel1.backgroundColor = UIColor.white
             textLabel1.widthAnchor.constraint(equalToConstant: self.view.frame.width).isActive = true
-            textLabel1.heightAnchor.constraint(equalToConstant: 20.0).isActive = true
+            subLabelsforsem3.append(textLabel1)
+            // textLabel1.heightAnchor.constraint(equalToConstant: 20.0).isActive = true
             let textLabel2 = UILabel()
             textLabel2.text = sem3Grades[index]
             textLabel2.backgroundColor = UIColor.white
             textLabel2.widthAnchor.constraint(equalToConstant: self.view.frame.width).isActive = true
-            textLabel2.heightAnchor.constraint(equalToConstant: 20.0).isActive = true
+            gradeLabelsforsem3.append(textLabel2)
+            //   textLabel2.heightAnchor.constraint(equalToConstant: 20.0).isActive = true
             let textLabel3 = UILabel()
-            textLabel3.text = sem3CreditsForSubjects[index]
+            textLabel3.text = sem3CreditsForSubjects[index]+"credits"
             textLabel3.backgroundColor = UIColor.white
             textLabel3.widthAnchor.constraint(equalToConstant: self.view.frame.width).isActive = true
-            textLabel3.heightAnchor.constraint(equalToConstant: 20.0).isActive = true
+            // textLabel3.heightAnchor.constraint(equalToConstant: 20.0).isActive = true
+            creditLabelsforsem3.append(textLabel3)
             
             
             
             
-            cell.subjectListView.addArrangedSubview(textLabel1)
-            cell.gradeListView.addArrangedSubview(textLabel2)
-            cell.creditListView.addArrangedSubview(textLabel3)
+            cell.subjectListView.addArrangedSubview(subLabelsforsem3[index])
+            cell.gradeListView.addArrangedSubview(gradeLabelsforsem3[index])
+            cell.creditListView.addArrangedSubview(creditLabelsforsem3[index])
+            
+            
+            
+            
+            
+            
+            
+            }}
+            
+            
+        else {
+            for index in (0...sem3Subjects.count-1)
+            {
+                
+                subLabelsforsem3[index].text = sem3Subjects[index]
+                gradeLabelsforsem3[index].text =  sem3Grades[index]
+                creditLabelsforsem3[index].text = sem3CreditsForSubjects[index]+"credits"
+
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+            }
             
             
             
             
             
         }
-        
         break
 
 
         
         
        case 1:
+        cell.whichSem.text = "Semester 2"
+        cell.semGPA.text = sem2GPA
+        cell.semCredits.text = sem2Credits
+
         
-        
-        for index in (0...sem2Subjects.count-1)
+        if subLabelsforsem2.count == 0
+        {  for index in (0...sem2Subjects.count-1)
         {
+            
             let textLabel1 = UILabel()
             textLabel1.text = sem2Subjects[index]
             textLabel1.backgroundColor = UIColor.white
             textLabel1.widthAnchor.constraint(equalToConstant: self.view.frame.width).isActive = true
-            textLabel1.heightAnchor.constraint(equalToConstant: 20.0).isActive = true
+            subLabelsforsem2.append(textLabel1)
+            // textLabel1.heightAnchor.constraint(equalToConstant: 20.0).isActive = true
             let textLabel2 = UILabel()
             textLabel2.text = sem2Grades[index]
             textLabel2.backgroundColor = UIColor.white
             textLabel2.widthAnchor.constraint(equalToConstant: self.view.frame.width).isActive = true
-            textLabel2.heightAnchor.constraint(equalToConstant: 20.0).isActive = true
+            gradeLabelsforsem2.append(textLabel2)
+            //   textLabel2.heightAnchor.constraint(equalToConstant: 20.0).isActive = true
             let textLabel3 = UILabel()
-            textLabel3.text = sem2CreditsForSubjects[index]
+            textLabel3.text = sem2CreditsForSubjects[index]+"credits"
             textLabel3.backgroundColor = UIColor.white
             textLabel3.widthAnchor.constraint(equalToConstant: self.view.frame.width).isActive = true
-            textLabel3.heightAnchor.constraint(equalToConstant: 20.0).isActive = true
+            // textLabel3.heightAnchor.constraint(equalToConstant: 20.0).isActive = true
+            creditLabelsforsem2.append(textLabel3)
             
             
             
             
-            cell.subjectListView.addArrangedSubview(textLabel1)
-            cell.gradeListView.addArrangedSubview(textLabel2)
-            cell.creditListView.addArrangedSubview(textLabel3)
+            cell.subjectListView.addArrangedSubview(subLabelsforsem2[index])
+            cell.gradeListView.addArrangedSubview(gradeLabelsforsem2[index])
+            cell.creditListView.addArrangedSubview(creditLabelsforsem2[index])
+            
+            
+            
+            
+            
+            
+            
+            }}
+            
+            
+        else {
+            for index in (0...sem2Subjects.count-1)
+            {
+                
+                subLabelsforsem2[index].text = sem2Subjects[index]
+                gradeLabelsforsem2[index].text =  sem2Grades[index]
+                creditLabelsforsem2[index].text = sem2CreditsForSubjects[index]+"credits"
+
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+            }
             
             
             
@@ -284,32 +557,69 @@ class ThirdViewController: UIViewController ,UITableViewDelegate, UITableViewDat
         
        case 0:
         
+        cell.whichSem.text = "Semester 1"
+        cell.semGPA.text = sem1GPA
+        cell.semCredits.text = sem1Credits
+
         
-        for index in (0...sem1Subjects.count-1)
+        if subLabelsforsem1.count == 0
+        {  for index in (0...sem1Subjects.count-1)
         {
-            let textLabel1 = UILabel()
+            
+               let textLabel1 = UILabel()
             textLabel1.text = sem1Subjects[index]
             textLabel1.backgroundColor = UIColor.white
             textLabel1.widthAnchor.constraint(equalToConstant: self.view.frame.width).isActive = true
-            textLabel1.heightAnchor.constraint(equalToConstant: 20.0).isActive = true
+            subLabelsforsem1.append(textLabel1)
+           // textLabel1.heightAnchor.constraint(equalToConstant: 20.0).isActive = true
             let textLabel2 = UILabel()
             textLabel2.text = sem1Grades[index]
             textLabel2.backgroundColor = UIColor.white
             textLabel2.widthAnchor.constraint(equalToConstant: self.view.frame.width).isActive = true
-            textLabel2.heightAnchor.constraint(equalToConstant: 20.0).isActive = true
+            gradeLabelsforsem1.append(textLabel2)
+         //   textLabel2.heightAnchor.constraint(equalToConstant: 20.0).isActive = true
             let textLabel3 = UILabel()
-            textLabel3.text = sem1CreditsForSubjects[index]
+            textLabel3.text = sem1CreditsForSubjects[index]+"credits"
             textLabel3.backgroundColor = UIColor.white
             textLabel3.widthAnchor.constraint(equalToConstant: self.view.frame.width).isActive = true
-            textLabel3.heightAnchor.constraint(equalToConstant: 20.0).isActive = true
+           // textLabel3.heightAnchor.constraint(equalToConstant: 20.0).isActive = true
+            creditLabelsforsem1.append(textLabel3)
             
             
             
             
-            cell.subjectListView.addArrangedSubview(textLabel1)
-            cell.gradeListView.addArrangedSubview(textLabel2)
-            cell.creditListView.addArrangedSubview(textLabel3)
+            cell.subjectListView.addArrangedSubview(subLabelsforsem1[index])
+            cell.gradeListView.addArrangedSubview(gradeLabelsforsem1[index])
+            cell.creditListView.addArrangedSubview(creditLabelsforsem1[index])
             
+            
+            
+            
+            
+            
+            
+            }}
+        
+        
+        else {
+            for index in (0...sem1Subjects.count-1)
+            {
+                
+                subLabelsforsem1[index].text = sem1Subjects[index]
+                gradeLabelsforsem1[index].text =  sem1Grades[index]
+                creditLabelsforsem1[index].text = sem1CreditsForSubjects[index]+"credits"
+
+              
+                
+                
+                
+                
+                
+                
+                
+                
+                
+            }
             
             
             
@@ -326,7 +636,10 @@ class ThirdViewController: UIViewController ,UITableViewDelegate, UITableViewDat
     override func viewDidLoad() {
         super.viewDidLoad()
     cgpaLabel.text = String(CGPA)
-        // Do any additional setup after loading the view.
+        totalCreditsLabel.text = String(sumOfCredits)
+        highestGPALabel.text = String(maxGPA)
+        lowestGPALabel.text = String(leastGPA)
+        
     }
 
     override func didReceiveMemoryWarning() {

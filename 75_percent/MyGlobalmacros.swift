@@ -78,6 +78,30 @@ var sumOfCredits: Int = 0
 var leastGPA : Double = 10
 var maxGPA :Double = 0
 var numberOfSems : Int = 0
+var subLabelsforsem1 = [UILabel]()
+var gradeLabelsforsem1 = [UILabel]()
+var creditLabelsforsem1 = [UILabel]()
+var subLabelsforsem2 = [UILabel]()
+var gradeLabelsforsem2 = [UILabel]()
+var creditLabelsforsem2 = [UILabel]()
+var subLabelsforsem3 = [UILabel]()
+var gradeLabelsforsem3 = [UILabel]()
+var creditLabelsforsem3 = [UILabel]()
+var subLabelsforsem4 = [UILabel]()
+var gradeLabelsforsem4 = [UILabel]()
+var creditLabelsforsem4 = [UILabel]()
+var subLabelsforsem5 = [UILabel]()
+var gradeLabelsforsem5 = [UILabel]()
+var creditLabelsforsem5 = [UILabel]()
+var subLabelsforsem6 = [UILabel]()
+var gradeLabelsforsem6 = [UILabel]()
+var creditLabelsforsem6 = [UILabel]()
+var subLabelsforsem7 = [UILabel]()
+var gradeLabelsforsem7 = [UILabel]()
+var creditLabelsforsem7 = [UILabel]()
+var subLabelsforsem8 = [UILabel]()
+var gradeLabelsforsem8 = [UILabel]()
+var creditLabelsforsem8 = [UILabel]()
 
 
 

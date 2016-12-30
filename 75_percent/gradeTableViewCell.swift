@@ -15,6 +15,12 @@ class gradeTableViewCell: UITableViewCell {
     @IBOutlet var gradeListView: UIStackView!
 
     @IBOutlet var creditListView: UIStackView!
+    @IBOutlet var whichSem: UILabel!
+    
+    @IBOutlet var semGPA: UILabel!
+    
+    @IBOutlet var semCredits: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -25,5 +31,6 @@ class gradeTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
+    
+    
 }
