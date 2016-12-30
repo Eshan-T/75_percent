@@ -51,6 +51,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
           //1
             guard let data = data, error == nil else {                                                 // check for fundamental networking error
                 print("error=\(error)")
+                OperationQueue.main.addOperation{
+                  
+                let alert = UIAlertController(title: "Alert", message: "You seem to be offline. Please check your internet connection", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                    MBProgressHUD.hideAllHUDs(for: self.view, animated:true)
+}
                 return
             }
          //2
@@ -62,8 +69,18 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             let responseString = String(data: data, encoding: .utf8)
             print("responseString = \(responseString!)")
                                         // final response
+            if responseString == "{\"status\": false, \"Description\": \"Invalid login\"}"
+            {
+                OperationQueue.main.addOperation{
+                   self.loginStatus.text = "invalid"
+                    MBProgressHUD.hideAllHUDs(for: self.view, animated:true)
+
+                }
+                
+                
+            }
             
-            
+            else{
             var json = JSON(data: data)
             studName = json["User Data"]["Name"].string!
             studBranch = json["User Data"]["Branch"].string!
@@ -428,7 +445,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 
             }
 
-        }
+            }}
         task.resume()
         
         
