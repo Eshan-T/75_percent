@@ -17,11 +17,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var dateOfBirth: UITextField!
     
     @IBAction func userTyping(_ sender: Any) {
-        regNoOfDigits = regNoOfDigits + 1
-        if regNoOfDigits != 9
+        //regNoOfDigits = regNoOfDigits + 1
+        if regNumber.text?.characters.count != 9
         
         {
             regNumberCheck.text = "Invalid format"
+            regNumberCheck.textColor = UIColor.red
+            loginStatus.text = ""
+        
             
         }
         else
@@ -31,7 +34,42 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    @IBAction func usertypingDOB(_ sender: Any) {
+        
+        
+       
+        
+        
+        if (dateOfBirth.text?.characters.count)! != 10
+        {
+            
+            DOBCheck.text = "wrong"
+        }
+        else {
+            
+            
+            if (dateOfBirth.text?.characters.count)! > 8
+            { let str = dateOfBirth.text!
+                let index = str.index(str.startIndex, offsetBy: 4)
+                let index2 = str.index(str.startIndex, offsetBy: 7)
+                if str[index] != "-" || str[index2] != "-"
+                {    
+                    DOBCheck.text = "wrong"
+                    
+                    
+                }
+                else{
+                    DOBCheck.text = ""
+                }
+                
+            }
+        }
+        
+    }
     
+    
+    
+    @IBOutlet var DOBCheck: UILabel!
     
     @IBOutlet var regNumberCheck: UILabel!
     
@@ -54,7 +92,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 OperationQueue.main.addOperation{
                   
                 let alert = UIAlertController(title: "Alert", message: "You seem to be offline. Please check your internet connection", preferredStyle: UIAlertControllerStyle.alert)
-                alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.default, handler: nil))
+                alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
                     self.present(alert, animated: true, completion: nil)
                     MBProgressHUD.hideAllHUDs(for: self.view, animated:true)
 }
@@ -68,11 +106,18 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
          //main
             let responseString = String(data: data, encoding: .utf8)
             print("responseString = \(responseString!)")
+            
+            
+            
+            
+            
                                         // final response
-            if responseString == "{\"status\": false, \"Description\": \"Invalid login\"}"
+            if responseString == "{\"status\": false, \"Description\": \"Invalid login\"}" || responseString == "{\"status\":False, \"Description\": \"Not Available\"}" || responseString == "{\"status\":False, \"Description\": \"Not Available2\"}"
+                
             {
                 OperationQueue.main.addOperation{
-                   self.loginStatus.text = "invalid"
+                   self.loginStatus.text = "Invalid Login Details "
+                    self.loginStatus.textColor = UIColor.red
                     MBProgressHUD.hideAllHUDs(for: self.view, animated:true)
 
                 }
@@ -81,6 +126,39 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             }
             
             else{
+                
+                
+                
+                self.process(data: data)
+                let defaults = UserDefaults.standard
+                defaults.set(responseString, forKey: "userData")
+                defaults.set(self.regNumber.text, forKey: "userRegNumber")
+                defaults.set(self.dateOfBirth.text, forKey: "userDOB")
+                var currentdate = Date()
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "EEE, dd MMM yyyy HH:mm:ss zzz"
+                var newDate = dateFormatter.string(from: currentdate)
+                defaults.set(newDate , forKey: "timeSaved")
+
+            }
+        
+        
+        
+        
+        
+        
+        }
+        task.resume()
+        
+        
+     
+        
+    }
+    @IBOutlet var loginStatus: UILabel!
+    
+    func process ( data :Data)
+    {
+        
             var json = JSON(data: data)
             studName = json["User Data"]["Name"].string!
             studBranch = json["User Data"]["Branch"].string!
@@ -106,45 +184,45 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             var tempp: Array = json["Scores"]["Internal Assesment 1"].array!
             numberOfInternallyMarkedSubjects = tempp.count
             numberOfAssessments = marksview.count
-                if numberOfAssessments == 1
-                {    for index1 in 0...numberOfInternallyMarkedSubjects-1 {
-                    marksSessionalOneSubject.append(json["Scores"]["Internal Assesment 1"][index1]["Course"].string!)
-                    marksSessionalOneSubjectCode.append(json["Scores"]["Internal Assesment 1"][index1]["Course Code"].string!)
-                    marksSessionalOneMarks.append(json["Scores"]["Internal Assesment 1"][index1]["Marks"].string!)
-                    }}
-                else if  numberOfAssessments == 2
-                {  for index2 in 0...numberOfInternallyMarkedSubjects-1 {
-                    marksSessionalOneSubject.append(json["Scores"]["Internal Assesment 1"][index2]["Course"].string!)
-                    marksSessionalOneSubjectCode.append(json["Scores"]["Internal Assesment 1"][index2]["Course Code"].string!)
-                    marksSessionalOneMarks.append(json["Scores"]["Internal Assesment 1"][index2]["Marks"].string!)
-                    }
-                    for index2 in 0...numberOfInternallyMarkedSubjects-1 {
-                        marksSessionalTwoSubject.append(json["Scores"]["Internal Assesment 2"][index2]["Course"].string!)
-                        marksSessionalTwoSubjectCode.append(json["Scores"]["Internal Assesment 2"][index2]["Course Code"].string!)
-                        marksSessionalTwoMarks.append(json["Scores"]["Internal Assesment 2"][index2]["Marks"].string!)
-                    }
-                    
+            if numberOfAssessments == 1
+            {    for index1 in 0...numberOfInternallyMarkedSubjects-1 {
+                marksSessionalOneSubject.append(json["Scores"]["Internal Assesment 1"][index1]["Course"].string!)
+                marksSessionalOneSubjectCode.append(json["Scores"]["Internal Assesment 1"][index1]["Course Code"].string!)
+                marksSessionalOneMarks.append(json["Scores"]["Internal Assesment 1"][index1]["Marks"].string!)
+                }}
+            else if  numberOfAssessments == 2
+            {  for index2 in 0...numberOfInternallyMarkedSubjects-1 {
+                marksSessionalOneSubject.append(json["Scores"]["Internal Assesment 1"][index2]["Course"].string!)
+                marksSessionalOneSubjectCode.append(json["Scores"]["Internal Assesment 1"][index2]["Course Code"].string!)
+                marksSessionalOneMarks.append(json["Scores"]["Internal Assesment 1"][index2]["Marks"].string!)
                 }
-                else if numberOfAssessments == 3
-                {
-                    for index3 in 0...numberOfInternallyMarkedSubjects-1 {
-                        marksSessionalOneSubject.append(json["Scores"]["Internal Assesment 1"][index3]["Course"].string!)
-                        marksSessionalOneSubjectCode.append(json["Scores"]["Internal Assesment 1"][index3]["Course Code"].string!)
-                        marksSessionalOneMarks.append(json["Scores"]["Internal Assesment 1"][index3]["Marks"].string!)
-                        print(marksSessionalOneMarks)
-                    }
-                    for index3 in 0...numberOfInternallyMarkedSubjects-1 {
-                        marksSessionalTwoSubject.append(json["Scores"]["Internal Assesment 2"][index3]["Course"].string!)
-                        marksSessionalTwoSubjectCode.append(json["Scores"]["Internal Assesment 2"][index3]["Course Code"].string!)
-                        marksSessionalTwoMarks.append(json["Scores"]["Internal Assesment 2"][index3]["Marks"].string!)
-                    }
-
-                    for index3 in 0...numberOfInternallyMarkedSubjects-1 {
-                        marksSessionalThreeSubject.append(json["Scores"]["Internal Assesment 3"][index3]["Course"].string!)
-                        marksSessionalThreeSubjectCode.append(json["Scores"]["Internal Assesment 3"][index3]["Course Code"].string!)
-                        marksSessionalThreeMarks.append(json["Scores"]["Internal Assesment 3"][index3]["Marks"].string!)
-                    }
-
+                for index2 in 0...numberOfInternallyMarkedSubjects-1 {
+                    marksSessionalTwoSubject.append(json["Scores"]["Internal Assesment 2"][index2]["Course"].string!)
+                    marksSessionalTwoSubjectCode.append(json["Scores"]["Internal Assesment 2"][index2]["Course Code"].string!)
+                    marksSessionalTwoMarks.append(json["Scores"]["Internal Assesment 2"][index2]["Marks"].string!)
+                }
+                
+            }
+            else if numberOfAssessments == 3
+            {
+                for index3 in 0...numberOfInternallyMarkedSubjects-1 {
+                    marksSessionalOneSubject.append(json["Scores"]["Internal Assesment 1"][index3]["Course"].string!)
+                    marksSessionalOneSubjectCode.append(json["Scores"]["Internal Assesment 1"][index3]["Course Code"].string!)
+                    marksSessionalOneMarks.append(json["Scores"]["Internal Assesment 1"][index3]["Marks"].string!)
+                    print(marksSessionalOneMarks)
+                }
+                for index3 in 0...numberOfInternallyMarkedSubjects-1 {
+                    marksSessionalTwoSubject.append(json["Scores"]["Internal Assesment 2"][index3]["Course"].string!)
+                    marksSessionalTwoSubjectCode.append(json["Scores"]["Internal Assesment 2"][index3]["Course Code"].string!)
+                    marksSessionalTwoMarks.append(json["Scores"]["Internal Assesment 2"][index3]["Marks"].string!)
+                }
+                
+                for index3 in 0...numberOfInternallyMarkedSubjects-1 {
+                    marksSessionalThreeSubject.append(json["Scores"]["Internal Assesment 3"][index3]["Course"].string!)
+                    marksSessionalThreeSubjectCode.append(json["Scores"]["Internal Assesment 3"][index3]["Course Code"].string!)
+                    marksSessionalThreeMarks.append(json["Scores"]["Internal Assesment 3"][index3]["Marks"].string!)
+                }
+                
             }
             
             //for grade stats
@@ -160,7 +238,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     sem8CreditsForSubjects.append(json["Grades"]["Details"]["Semester 8"]["Grades"][index]["Credits"].string!)
                     sem8Grades.append(json["Grades"]["Details"]["Semester 8"]["Grades"][index]["Grade"].string!)
                     
-                   
+                    
                     
                     
                 }
@@ -176,7 +254,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     
                     
                 }
-
+                
                 if sem8GPADouble < leastGPA
                 {
                     leastGPA = sem8GPADouble
@@ -191,13 +269,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     sem7Subjects.append(json["Grades"]["Details"]["Semester 7"]["Grades"][index]["Subject"].string!)
                     sem7CreditsForSubjects.append(json["Grades"]["Details"]["Semester 7"]["Grades"][index]["Credits"].string!)
                     sem7Grades.append(json["Grades"]["Details"]["Semester 7"]["Grades"][index]["Grade"].string!)
-                   
+                    
                     
                     
                 }
                 sem7GPA = json["Grades"]["Details"]["Semester 7"]["GPA"].string!
                 sem7Credits = json["Grades"]["Details"]["Semester 7"]["NoOfCredits"].string!
-
+                
                 sumOfGpas = sumOfGpas + Double(sem7GPA)!
                 sumOfCredits = sumOfCredits + Int(sem7Credits)!
                 
@@ -216,10 +294,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     
                     
                 }
-
-
+                
+                
                 fallthrough
-              
+                
             case 6 :
                 var sem6noOfSubs = json["Grades"]["Details"]["Semester 6"]["Grades"].count
                 for index in 0...sem6noOfSubs-1
@@ -232,7 +310,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 }
                 sem6GPA = json["Grades"]["Details"]["Semester 6"]["GPA"].string!
                 sem6Credits = json["Grades"]["Details"]["Semester 6"]["NoOfCredits"].string!
-
+                
                 sumOfGpas = sumOfGpas + Double(sem6GPA)!
                 sumOfCredits = sumOfCredits + Int(sem6Credits)!
                 var sem6GPADouble = Double(sem6GPA)!
@@ -250,8 +328,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     
                     
                 }
-
-
+                
+                
                 fallthrough
                 
             case 5 :
@@ -284,8 +362,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     
                     
                 }
-
-
+                
+                
                 fallthrough
                 
             case 4 :
@@ -318,8 +396,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     
                     
                 }
-
-
+                
+                
                 fallthrough
             case 3 :
                 var sem3noOfSubs = json["Grades"]["Details"]["Semester 3"]["Grades"].count
@@ -329,7 +407,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     sem3CreditsForSubjects.append(json["Grades"]["Details"]["Semester 3"]["Grades"][index]["Credits"].string!)
                     sem3Grades.append(json["Grades"]["Details"]["Semester 3"]["Grades"][index]["Grade"].string!)
                     
-                   
+                    
                     
                 }
                 sem3GPA = json["Grades"]["Details"]["Semester 3"]["GPA"].string!
@@ -351,8 +429,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     
                     
                 }
-
-
+                
+                
                 fallthrough
                 
             case 2:
@@ -385,8 +463,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     
                     
                 }
-
-
+                
+                
                 fallthrough
                 
             case 1:
@@ -419,44 +497,45 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     
                     
                 }
-
-
+                
+                
                 
             default :
                 print("nope" )
             }
             
-           
             
-        
-        /*print(attendanceSubjectNames)
-            print(attendanceClassesTaken)
-            print(attendanceClassesAttended)
-            print(attendanceClassesBunked)
-            print(attendancePercentage)
-            print(attendanceDate)*/
+            
+            
+            /*print(attendanceSubjectNames)
+             print(attendanceClassesTaken)
+             print(attendanceClassesAttended)
+             print(attendanceClassesBunked)
+             print(attendancePercentage)
+             print(attendanceDate)*/
             
             CGPA = sumOfGpas/Double(numberOfSems)
-
+            
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5){
-                 MBProgressHUD.hideAllHUDs(for: self.view, animated:true)
+                MBProgressHUD.hideAllHUDs(for: self.view, animated:true)
                 
                 self.performSegue(withIdentifier: "mainsegue", sender: nil)
                 
-            }
-
-            }}
-        task.resume()
-        
-        
-     
-        
+            
+            
+        }
     }
-    @IBOutlet var loginStatus: UILabel!
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        let defaults = UserDefaults.standard
+       if let name = defaults.string(forKey: "userData") {
+        
+        let dataSaved = name.data(using: .utf8)
+        process(data: dataSaved!)
+        
+        }
   regNumber.delegate = self
         
 
@@ -464,6 +543,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         // Do any additional setup after loading the view.
     }
 
+    
     
     func textFieldDidChange(regNumber: UITextField) {
         regNumberCheck.text = "shit"
