@@ -21,6 +21,31 @@ class FourthViewController: UIViewController {
     @IBAction func logout(_ sender: Any) {
         
         
+        UserDefaults.standard.removeObject(forKey: "userData")
+        sem1Subjects.removeAll()
+        sem1CreditsForSubjects.removeAll()
+        sem1Grades.removeAll()
+        sem2Subjects.removeAll()
+        sem2CreditsForSubjects.removeAll()
+        sem2Grades.removeAll()
+        sem3Subjects.removeAll()
+        sem3CreditsForSubjects.removeAll()
+        sem3Grades.removeAll()
+        sem4Subjects.removeAll()
+        sem4CreditsForSubjects.removeAll()
+        sem4Grades.removeAll()
+        sem5Subjects.removeAll()
+        sem5CreditsForSubjects.removeAll()
+        sem5Grades.removeAll()
+        sem6Subjects.removeAll()
+        sem6CreditsForSubjects.removeAll()
+        sem6Grades.removeAll()
+        sem7Subjects.removeAll()
+        sem7CreditsForSubjects.removeAll()
+        sem7Grades.removeAll()
+        
+        
+        
     }
     
     

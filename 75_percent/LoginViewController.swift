@@ -12,7 +12,9 @@ import SwiftyJSON
 import MBProgressHUD
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
+    var opQueue = OperationQueue()
 
+    @IBOutlet var logInButton: UIButton!
     @IBOutlet var regNumber: UITextField!
     @IBOutlet var dateOfBirth: UITextField!
     
@@ -525,15 +527,58 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             
         }
     }
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         
         let defaults = UserDefaults.standard
-       if let name = defaults.string(forKey: "userData") {
+       
         
-        let dataSaved = name.data(using: .utf8)
-        process(data: dataSaved!)
+       if let name = defaults.string(forKey: "userRegNumber") {
+        print("lol")
+        
+       let dataSaved = name.data(using: .utf8)
+        let date = defaults.string(forKey: "userData")
+        let data = date?.data(using: .utf8)
+        let alert = UIAlertController(title: "Alert", message: "sign in as \(name) ? ", preferredStyle: UIAlertControllerStyle.alert)
+        
+        let YES = UIAlertAction(title: "YES", style: UIAlertActionStyle.default) {
+            UIAlertAction in
+            //self.process(data: data!)
+             self.regNumber.text = defaults.string(forKey: "userRegNumber")
+            self.dateOfBirth.text = defaults.string(forKey: "userDOB")
+            self.logInButton.sendActions(for: .touchUpInside)
+            
+
+
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel) {
+            UIAlertAction in
+            NSLog("Cancel Pressed")
+        }
+        
+        // Add the actions
+    
+        alert.addAction(cancelAction)
+        alert.addAction(YES)
+        
+        
+        
+        
+        
+        
+ 
+        
+        self.opQueue.addOperation {
+            // Put queue to the main thread which will update the UI
+            OperationQueue.main.addOperation({
+                self.present(alert, animated: true, completion: nil)
+            })
+        }
+       
         
         }
   regNumber.delegate = self

@@ -306,11 +306,10 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b6X-5F-Lme">
-                                <rect key="frame" x="109" y="456" width="148" height="93"/>
+                                <rect key="frame" x="77" y="427" width="212" height="93"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Logout"/>
+                                <state key="normal" title="Press home button to Logout"/>
                                 <connections>
-                                    <action selector="logout:" destination="c8W-6E-4TH" eventType="touchUpInside" id="yVP-OD-8Yu"/>
                                     <segue destination="bpx-RU-cvk" kind="show" id="Ydx-9k-5Na"/>
                                 </connections>
                             </button>
@@ -652,6 +651,7 @@
                     <connections>
                         <outlet property="DOBCheck" destination="4ho-vI-aOj" id="rKu-kX-DLM"/>
                         <outlet property="dateOfBirth" destination="iHG-4a-G0a" id="06b-GD-Kfe"/>
+                        <outlet property="logInButton" destination="R4h-Xe-luS" id="KPX-47-2yE"/>
                         <outlet property="loginStatus" destination="5K1-wy-Ipw" id="qz4-6d-kdo"/>
                         <outlet property="regNumber" destination="GSM-ag-YcK" id="fCB-iE-57v"/>
                         <outlet property="regNumberCheck" destination="RNQ-bj-bI8" id="Ddj-3G-Hjd"/>

@@ -536,7 +536,7 @@ class ThirdViewController: UIViewController ,UITableViewDelegate, UITableViewDat
                 creditLabelsforsem2[index].text = sem2CreditsForSubjects[index]+"credits"
 
                 
-                
+                print(subLabelsforsem2[index].text)
                 
                 
                 
@@ -604,6 +604,7 @@ class ThirdViewController: UIViewController ,UITableViewDelegate, UITableViewDat
         else {
             for index in (0...sem1Subjects.count-1)
             {
+                print(sem1Subjects)
                 
                 subLabelsforsem1[index].text = sem1Subjects[index]
                 gradeLabelsforsem1[index].text =  sem1Grades[index]
