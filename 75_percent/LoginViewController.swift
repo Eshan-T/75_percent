@@ -114,7 +114,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             
             
                                         // final response
-            if responseString == "{\"status\": false, \"Description\": \"Invalid login\"}" || responseString == "{\"status\":False, \"Description\": \"Not Available\"}" || responseString == "{\"status\":False, \"Description\": \"Not Available2\"}"
+            if responseString == "{\"status\": false, \"Description\": \"Invalid login\"}"
                 
             {
                 OperationQueue.main.addOperation{
@@ -123,10 +123,54 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     MBProgressHUD.hideAllHUDs(for: self.view, animated:true)
 
                 }
+            
                 
                 
             }
             
+            else if responseString == "{\"status\":False, \"Description\": \"Not Available\"}" || responseString == "{\"status\":False, \"Description\": \"Not Available2\"}"
+            {
+                
+                OperationQueue.main.addOperation{
+                    self.loginStatus.text = "Websis down "
+                    self.loginStatus.textColor = UIColor.red
+                    MBProgressHUD.hideAllHUDs(for: self.view, animated:true)
+                    let defaults = UserDefaults.standard
+                    
+                    
+                    if let name = defaults.string(forKey: "userRegNumber"){
+                      var stringData = defaults.string(forKey: "userData")
+                        let dataSaved = stringData?.data(using: .utf8)
+                        var date = defaults.string(forKey: "timeSaved")
+                    let alert = UIAlertController(title: "Alert", message: "Websis seems to be down. We have a cached copy updated on \(date). Want to load that? ", preferredStyle: UIAlertControllerStyle.alert)
+                    
+                    let YES = UIAlertAction(title: "YES", style: UIAlertActionStyle.default) {
+                        UIAlertAction in
+                        self.process(data: dataSaved!)
+                        
+                        
+                        
+                        
+                    }
+                    let cancelAction = UIAlertAction(title: "Log in as different user", style: UIAlertActionStyle.default) {
+                        UIAlertAction in
+                        NSLog("Cancel Pressed")
+                    }
+                    
+                    // Add the actions
+                    
+                    alert.addAction(cancelAction)
+                    alert.addAction(YES)
+
+                    
+                    }
+                }
+
+            
+            
+            
+            }
+                
             else{
                 
                 
