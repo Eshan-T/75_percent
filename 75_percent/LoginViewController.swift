@@ -93,11 +93,50 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 print("error=\(error)")
                 OperationQueue.main.addOperation{
                   
-                let alert = UIAlertController(title: "Alert", message: "You seem to be offline. Please check your internet connection", preferredStyle: UIAlertControllerStyle.alert)
+               /*let alert = UIAlertController(title: "Alert", message: "You seem to be offline. Please check your internet connection", preferredStyle: UIAlertControllerStyle.alert)
                 alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
                     self.present(alert, animated: true, completion: nil)
-                    MBProgressHUD.hideAllHUDs(for: self.view, animated:true)
+                    MBProgressHUD.hideAllHUDs(for: self.view, animated:true)*/
+                    
+                    
+                        self.loginStatus.text = "You seem to be offline.  "
+                        self.loginStatus.textColor = UIColor.red
+                        MBProgressHUD.hideAllHUDs(for: self.view, animated:true)
+                        let defaults = UserDefaults.standard
+                        
+                        
+                        if let name = defaults.string(forKey: "userRegNumber"){
+                            var stringData = defaults.string(forKey: "userData")
+                            let dataSaved = stringData?.data(using: .utf8)
+                            var date = defaults.string(forKey: "timeSaved")
+                            let alert = UIAlertController(title: "Alert", message: "You seem to be offline. We have a cached copy updated on \(date!). Want to load that? ", preferredStyle: UIAlertControllerStyle.alert)
+                            
+                            let YES = UIAlertAction(title: "YES", style: UIAlertActionStyle.default) {
+                                UIAlertAction in
+                                self.process(data: dataSaved!)
+                                
+                                
+                                
+                                
+                            }
+                            let cancelAction = UIAlertAction(title: "No. Log in as a different user", style: UIAlertActionStyle.default) {
+                                UIAlertAction in
+                                NSLog("Cancel Pressed")
+                            }
+                            
+                            // Add the actions
+                            
+                            alert.addAction(cancelAction)
+                            alert.addAction(YES)
+                            alert.addAction(cancelAction)
+                            
+                            self.present(alert, animated: true, completion: nil)
+                        }
+                    
+                    
+                    
 }
+                    
                 return
             }
          //2
@@ -162,7 +201,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     alert.addAction(cancelAction)
                     alert.addAction(YES)
 
-                    
+                    self.present(alert, animated: true, completion: nil)
                     }
                 }
 
@@ -182,7 +221,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 defaults.set(self.dateOfBirth.text, forKey: "userDOB")
                 var currentdate = Date()
                 let dateFormatter = DateFormatter()
-                dateFormatter.dateFormat = "EEE, dd MMM yyyy HH:mm:ss zzz"
+                dateFormatter.dateFormat = "dd MMM yyyy HH:mm:ss "
                 var newDate = dateFormatter.string(from: currentdate)
                 defaults.set(newDate , forKey: "timeSaved")
 
@@ -207,6 +246,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
             var json = JSON(data: data)
             studName = json["User Data"]["Name"].string!
+            let defaults = UserDefaults.standard
+            defaults.set(studName, forKey: "userName")
             studBranch = json["User Data"]["Branch"].string!
             studRegNo = json["User Data"]["Registration Number"].string!
             var crap: Array = json["Attendance"].array!
@@ -581,15 +622,15 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         let defaults = UserDefaults.standard
        
         
-       if let name = defaults.string(forKey: "userRegNumber") {
+       if let name = defaults.string(forKey: "userName") {
         print("lol")
         
        let dataSaved = name.data(using: .utf8)
         let date = defaults.string(forKey: "userData")
         let data = date?.data(using: .utf8)
-        let alert = UIAlertController(title: "Alert", message: "sign in as \(name) ? ", preferredStyle: UIAlertControllerStyle.alert)
+        let alert = UIAlertController(title: "Let's make this faster", message: "Sign in as \(name) ? ", preferredStyle: UIAlertControllerStyle.alert)
         
-        let YES = UIAlertAction(title: "YES", style: UIAlertActionStyle.default) {
+        let YES = UIAlertAction(title: "Yes", style: UIAlertActionStyle.default) {
             UIAlertAction in
             //self.process(data: data!)
              self.regNumber.text = defaults.string(forKey: "userRegNumber")
@@ -599,15 +640,15 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
 
         }
-        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel) {
+        let cancelAction = UIAlertAction(title: "No. Different account.", style: UIAlertActionStyle.default) {
             UIAlertAction in
             NSLog("Cancel Pressed")
         }
         
         // Add the actions
-    
+         alert.addAction(YES)
         alert.addAction(cancelAction)
-        alert.addAction(YES)
+        
         
         
         

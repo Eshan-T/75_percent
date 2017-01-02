@@ -495,18 +495,23 @@ class ThirdViewController: UIViewController ,UITableViewDelegate, UITableViewDat
             let textLabel1 = UILabel()
             textLabel1.text = sem2Subjects[index]
             textLabel1.backgroundColor = UIColor.white
+            textLabel1.font = UIFont.systemFont(ofSize: 11)
             textLabel1.widthAnchor.constraint(equalToConstant: self.view.frame.width).isActive = true
             subLabelsforsem2.append(textLabel1)
             // textLabel1.heightAnchor.constraint(equalToConstant: 20.0).isActive = true
             let textLabel2 = UILabel()
             textLabel2.text = sem2Grades[index]
             textLabel2.backgroundColor = UIColor.white
+            textLabel2.font = UIFont.systemFont(ofSize: 11)
+
             textLabel2.widthAnchor.constraint(equalToConstant: self.view.frame.width).isActive = true
             gradeLabelsforsem2.append(textLabel2)
             //   textLabel2.heightAnchor.constraint(equalToConstant: 20.0).isActive = true
             let textLabel3 = UILabel()
             textLabel3.text = sem2CreditsForSubjects[index]+"credits"
             textLabel3.backgroundColor = UIColor.white
+            textLabel3.font = UIFont.systemFont(ofSize: 11)
+
             textLabel3.widthAnchor.constraint(equalToConstant: self.view.frame.width).isActive = true
             // textLabel3.heightAnchor.constraint(equalToConstant: 20.0).isActive = true
             creditLabelsforsem2.append(textLabel3)
