@@ -25,6 +25,7 @@ class marksTableViewCell: UITableViewCell {
     @IBOutlet var internalTotal: UILabel!
     
     
+    @IBOutlet var outOfTotal: UILabel!
     
     
     

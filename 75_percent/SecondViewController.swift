@@ -18,6 +18,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         cell.subjectName.text = marksSessionalOneSubject[indexPath.row]
         cell.subjectDate.text = marksSessionalOneSubjectCode[indexPath.row]
         cell.internalTotal.text = String(subjectInternalTotalArray[indexPath.row])
+        cell.outOfTotal.text = " Out of " + outOfAssesments
         return cell
     
     }
@@ -38,16 +39,19 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
            if numberOfAssessments == 1
            {
                subjectInternalTotalArray[index] = sessionalOneMarks[index]
+              outOfAssesments = "15"
             }
             
             if numberOfAssessments == 2
             {
                 subjectInternalTotalArray[index] = sessionalOneMarks[index] + sessionalTwoMarks[index]
+                outOfAssesments = "30"
             }
             if numberOfAssessments == 3
             {
                 
                 subjectInternalTotalArray.append( sessionalOneMarks[index] + sessionalTwoMarks[index] + sessionalThreeMarks[index])
+                outOfAssesments = "50"
 
             }
         
