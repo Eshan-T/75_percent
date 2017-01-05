@@ -210,6 +210,48 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             
             }
                 
+            else if responseString?.characters.first == "<"
+            {
+                OperationQueue.main.addOperation{
+                    self.loginStatus.text = "Websis down "
+                    self.loginStatus.textColor = UIColor.red
+                    MBProgressHUD.hideAllHUDs(for: self.view, animated:true)
+                    let defaults = UserDefaults.standard
+                    
+                    
+                    if let name = defaults.string(forKey: "userRegNumber"){
+                        var stringData = defaults.string(forKey: "userData")
+                        let dataSaved = stringData?.data(using: .utf8)
+                        var date = defaults.string(forKey: "timeSaved")
+                        let alert = UIAlertController(title: "Error", message: "Encuontered an error. We have a cached copy updated on \(date!). Want to load that? ", preferredStyle: UIAlertControllerStyle.alert)
+                        
+                        let YES = UIAlertAction(title: "YES", style: UIAlertActionStyle.default) {
+                            UIAlertAction in
+                            self.process(data: dataSaved!)
+                            
+                            
+                            
+                            
+                        }
+                        let cancelAction = UIAlertAction(title: "Log in as different user", style: UIAlertActionStyle.default) {
+                            UIAlertAction in
+                            NSLog("Cancel Pressed")
+                        }
+                        
+                        // Add the actions
+                        
+                        alert.addAction(cancelAction)
+                        alert.addAction(YES)
+                        
+                        self.present(alert, animated: true, completion: nil)
+                    }
+                }
+                
+
+                
+            }
+
+            
             else{
                 
                 
