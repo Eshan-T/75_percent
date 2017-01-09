@@ -10,9 +10,11 @@
 import UIKit
 import SwiftyJSON
 import MBProgressHUD
+import KDCircularProgress
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
     var opQueue = OperationQueue()
+ 
 
     @IBOutlet var logInButton: UIButton!
     @IBOutlet var regNumber: UITextField!
@@ -660,7 +662,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         let defaults = UserDefaults.standard
        
         
@@ -723,12 +724,16 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     
     
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        regNumber.resignFirstResponder()
+        dateOfBirth.resignFirstResponder()
+    }
     /*
     // MARK: - Navigation
 

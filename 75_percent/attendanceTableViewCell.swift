@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import KDCircularProgress
 class attendanceTableViewCell: UITableViewCell {
 
     @IBOutlet var classesTaken: UILabel!
@@ -15,6 +15,7 @@ class attendanceTableViewCell: UITableViewCell {
     
     @IBOutlet var classesAttended: UILabel!
     
+    @IBOutlet var animate: KDCircularProgress!
     @IBOutlet var subjectName: UILabel!
     @IBOutlet var subjectDate: UILabel!
     @IBOutlet var subjectAttenPercentage: UILabel!

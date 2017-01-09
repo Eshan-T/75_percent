@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import KDCircularProgress
 
 class FirstViewController: UIViewController, UITableViewDataSource,UITableViewDelegate {
     
@@ -22,6 +23,21 @@ class FirstViewController: UIViewController, UITableViewDataSource,UITableViewDe
         cell.subjectName.text = attendanceSubjectNames[indexPath.row]
         cell.subjectDate.text = attendanceDate[indexPath.row]
         cell.subjectAttenPercentage.text = attendancePercentage[indexPath.row]
+        if Double(attendanceClassesAttended[indexPath.row]) != 0
+        {  cell.animate.isHidden = false
+            var angle = Double(attendanceClassesAttended[indexPath.row])!/Double(attendanceClassesTaken[indexPath.row])! * 360
+        cell.animate.animate(fromAngle: 0, toAngle: angle, duration: 1, completion:nil)
+            if (angle/360)*100 < 75
+            {
+                cell.animate.progressInsideFillColor = UIColor.red
+                cell.subjectAttenPercentage.textColor = UIColor.red
+                
+            }
+        
+        }
+        else {
+            cell.animate.isHidden = true
+        }
         
         
         

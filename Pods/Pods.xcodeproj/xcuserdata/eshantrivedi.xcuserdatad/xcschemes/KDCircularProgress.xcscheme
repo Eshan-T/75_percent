@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'F32E3336CFE9BB2A69644B902605BC7A'
-               BlueprintName = 'SwiftyJSON'
+               BlueprintIdentifier = '322428ECC8C5EC71F14C92233787C7AC'
+               BlueprintName = 'KDCircularProgress'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'SwiftyJSON.framework'>
+               BuildableName = 'KDCircularProgress.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

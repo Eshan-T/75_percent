@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>KDCircularProgress.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>MBProgressHUD.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -22,17 +27,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>322428ECC8C5EC71F14C92233787C7AC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>6B1714E816AE794962516E2ECBB40A5A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8CE71E69D8DDDE04EED6169719485C1E</key>
+		<key>6D05685DB683E937F8A198FA7B3F4C0D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>AC7A919D89572F0613DB6D9CF703FC53</key>
+		<key>F32E3336CFE9BB2A69644B902605BC7A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
