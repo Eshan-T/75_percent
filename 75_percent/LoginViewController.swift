@@ -312,7 +312,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             
             //for marks
             var marksview: Dictionary = json["Scores"].dictionary!
-            var tempp: Array = json["Scores"]["Internal Assesment 1"].array!
+         if marksview.count > 0
+         { var tempp: Array = json["Scores"]["Internal Assesment 1"].array!
             numberOfInternallyMarkedSubjects = tempp.count
             numberOfAssessments = marksview.count
             if numberOfAssessments == 1
@@ -354,7 +355,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     marksSessionalThreeMarks.append(json["Scores"]["Internal Assesment 3"][index3]["Marks"].string!)
                 }
                 
-            }
+            }}
+         else {
+            flag = 0;
+        }
             
             //for grade stats
             
@@ -598,7 +602,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 
                 fallthrough
                 
-            case 1:
+          case 1:
                 var sem1noOfSubs = json["Grades"]["Details"]["Semester 1"]["Grades"].count
                 for index in 0...sem1noOfSubs-1
                 {

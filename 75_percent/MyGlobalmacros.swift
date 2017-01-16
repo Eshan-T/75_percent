@@ -104,6 +104,7 @@ var gradeLabelsforsem8 = [UILabel]()
 var creditLabelsforsem8 = [UILabel]()
 var regNoOfDigits : Int = 0
 var outOfAssesments : String!
+var flag : Int = 0
 
 
 

@@ -12,19 +12,36 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CellMarks", for: indexPath)       as! marksTableViewCell
-        cell.firstSessionalMarks.text = marksSessionalOneMarks[indexPath.row]
+        if flag == 1
+        {cell.firstSessionalMarks.text = marksSessionalOneMarks[indexPath.row]
         cell.secondSessionalMarks.text = marksSessionalTwoMarks[indexPath.row]
         cell.assignmentMarks.text = marksSessionalThreeMarks[indexPath.row]
         cell.subjectName.text = marksSessionalOneSubject[indexPath.row]
         cell.subjectDate.text = marksSessionalOneSubjectCode[indexPath.row]
-        cell.internalTotal.text = String(subjectInternalTotalArray[indexPath.row])
-        cell.outOfTotal.text = " Out of " + outOfAssesments
+            cell.internalTotal.text = String(subjectInternalTotalArray[indexPath.row])
+            cell.outOfTotal.text = " Out of " + outOfAssesments}
         return cell
     
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return numberOfInternallyMarkedSubjects
+        if flag == 1
+        {  return numberOfInternallyMarkedSubjects}
+        else {
+            let alert = UIAlertController(title: "Alert", message: "No internal asssesments", preferredStyle: UIAlertControllerStyle.alert)
+            
+            let YES = UIAlertAction(title: "Ok", style: UIAlertActionStyle.default) {
+                UIAlertAction in
+            
+            }
+            
+           
+            alert.addAction(YES)
+            
+            self.present(alert, animated: true, completion: nil)
+
+            return 0
+        }
         
     }
     
@@ -34,7 +51,8 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let sessionalTwoMarks = marksSessionalTwoMarks.map { Double($0)!}
         let sessionalThreeMarks = marksSessionalThreeMarks.map { Double($0)!}
         super.viewDidLoad()
-        for index in 0...numberOfInternallyMarkedSubjects-1
+        if flag == 1
+        {for index in 0...numberOfInternallyMarkedSubjects-1
         {
            if numberOfAssessments == 1
            {
@@ -56,6 +74,9 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
             }
         
         
+            }}
+        else{
+            //
         }
     
     
