@@ -16,24 +16,28 @@ class FirstViewController: UIViewController, UITableViewDataSource,UITableViewDe
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CellAttendance", for: indexPath)       as! attendanceTableViewCell
-        
+        if Double(attendanceClassesAttended[indexPath.row]) != nil && Double(attendanceClassesAttended[indexPath.row]) != 0
+        {
+            angle = Double(attendanceClassesAttended[indexPath.row])!/Double(attendanceClassesTaken[indexPath.row])! * 360}
        cell.classBunked.text = attendanceClassesBunked[indexPath.row]
       cell.classesTaken.text = attendanceClassesTaken[indexPath.row]
         cell.classesAttended.text = attendanceClassesAttended[indexPath.row]
         cell.subjectName.text = attendanceSubjectNames[indexPath.row]
         cell.subjectDate.text = attendanceDate[indexPath.row]
         cell.subjectAttenPercentage.text = attendancePercentage[indexPath.row]
-        if Double(attendanceClassesAttended[indexPath.row]) != nil
+    //    OperationQueue.main.addOperation{
+
+        if Double(attendanceClassesAttended[indexPath.row]) != nil && Double(attendanceClassesAttended[indexPath.row]) != 0
         {
             cell.animate.isHidden = false
-            var angle: Double = Double(attendanceClassesAttended[indexPath.row])!/Double(attendanceClassesTaken[indexPath.row])! * 360
-        cell.animate.animate(fromAngle: 0, toAngle: angle, duration: 1, completion:nil)
-           if (angle/360)*100 < 75
+           print(angle)
+        cell.animate.animate(fromAngle: 0, toAngle: angle , duration: 1, completion:nil)
+           if (angle/360)*100 < 76
             {
-                cell.animate.progressInsideFillColor = UIColor.red
+                cell.animate.progressColors = [UIColor.red]
                 cell.subjectAttenPercentage.textColor = UIColor.red
                 
-            }
+           }
         
         }
         else {
@@ -41,7 +45,7 @@ class FirstViewController: UIViewController, UITableViewDataSource,UITableViewDe
         }
         
         
-        
+      //  }
         return cell
     }
     
@@ -56,6 +60,8 @@ class FirstViewController: UIViewController, UITableViewDataSource,UITableViewDe
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
 

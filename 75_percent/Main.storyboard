@@ -172,7 +172,7 @@
                                                 <constraint firstItem="Rvf-Md-dI6" firstAttribute="leading" secondItem="alE-YV-ao5" secondAttribute="trailing" constant="8" id="z23-mL-XlG"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.98431372549019602" green="1" blue="0.99607843137254903" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.97647058823529409" green="0.95294117647058818" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <connections>
                                             <outlet property="animate" destination="uOh-bU-OGV" id="IhA-Xp-fal"/>
@@ -259,19 +259,19 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="102" height="86"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Sessional 1   " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SJq-Cx-b5P">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="102" height="22"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="102" height="23"/>
                                                                     <fontDescription key="fontDescription" name="Cochin" family="Cochin" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Sessioanl 2    " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x3n-I5-rR8">
-                                                                    <rect key="frame" x="0.0" y="34" width="102" height="20"/>
+                                                                    <rect key="frame" x="0.0" y="35" width="102" height="19.5"/>
                                                                     <fontDescription key="fontDescription" name="Cochin" family="Cochin" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Assignments   " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RYl-vt-Cyg">
-                                                                    <rect key="frame" x="0.0" y="66" width="102" height="20"/>
+                                                                    <rect key="frame" x="0.0" y="66.5" width="102" height="19.5"/>
                                                                     <fontDescription key="fontDescription" name="Cochin" family="Cochin" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -282,19 +282,19 @@
                                                             <rect key="frame" x="119" y="0.0" width="34" height="86"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" 00  " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SMT-eW-VjP">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="34" height="21"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="34" height="20.5"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" 00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FyI-mI-7ol">
-                                                                    <rect key="frame" x="0.0" y="33" width="34" height="21"/>
+                                                                    <rect key="frame" x="0.0" y="32.5" width="34" height="20.5"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" 00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZLN-8B-2fZ">
-                                                                    <rect key="frame" x="0.0" y="66" width="34" height="20"/>
+                                                                    <rect key="frame" x="0.0" y="65" width="34" height="21"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -350,7 +350,7 @@
                                                 <constraint firstItem="A9z-q2-R7N" firstAttribute="top" secondItem="wNY-Hb-XTa" secondAttribute="topMargin" constant="15" id="z8y-dp-G6x"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.98431372549019602" green="1" blue="0.99607843137254903" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.97647058823529409" green="0.95294117647058818" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <outlet property="assignmentMarks" destination="ZLN-8B-2fZ" id="VY3-0k-JQb"/>
                                             <outlet property="firstSessionalMarks" destination="SMT-eW-VjP" id="YC3-Y0-H7E"/>
@@ -473,15 +473,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="362" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Sbc-ud-a4g">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="354" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Sbc-ud-a4g">
                                 <rect key="frame" x="0.0" y="192" width="375" height="398"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CellCGPA" rowHeight="362" id="V27-EM-gTY" customClass="gradeTableViewCell" customModule="_5_percent" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="362"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CellCGPA" rowHeight="354" id="V27-EM-gTY" customClass="gradeTableViewCell" customModule="_5_percent" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="354"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="V27-EM-gTY" id="HEt-Kx-Rrb">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="361"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="353"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="WSU-nt-YWY">
@@ -730,27 +730,28 @@
                                             <constraints>
                                                 <constraint firstItem="7DH-ym-x3h" firstAttribute="top" secondItem="HEt-Kx-Rrb" secondAttribute="topMargin" constant="32" id="1Vq-am-hVM"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="WSU-nt-YWY" secondAttribute="trailing" constant="25" id="9ke-zO-3Ty"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="dBS-X2-xHI" secondAttribute="bottom" constant="20.5" id="A7m-BG-RJQ"/>
                                                 <constraint firstItem="YZL-GH-pmt" firstAttribute="top" secondItem="4qV-Qy-mbK" secondAttribute="bottom" constant="15.5" id="CKY-tT-pd7"/>
                                                 <constraint firstItem="hO1-sr-AF1" firstAttribute="leading" secondItem="YZL-GH-pmt" secondAttribute="trailing" constant="30" id="J1S-SC-Ki1"/>
                                                 <constraint firstItem="UhQ-1h-qa6" firstAttribute="leading" secondItem="YZL-GH-pmt" secondAttribute="leading" id="KxQ-0V-Xsg"/>
                                                 <constraint firstItem="OC5-qR-JE8" firstAttribute="top" secondItem="HEt-Kx-Rrb" secondAttribute="topMargin" id="Obh-Nd-rf2"/>
+                                                <constraint firstItem="dBS-X2-xHI" firstAttribute="top" secondItem="WSU-nt-YWY" secondAttribute="bottom" constant="30.5" id="OmK-KY-oDA"/>
                                                 <constraint firstItem="YZL-GH-pmt" firstAttribute="leading" secondItem="HEt-Kx-Rrb" secondAttribute="leadingMargin" constant="17" id="PIB-XG-sAG"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="mkY-2G-DQV" secondAttribute="bottom" constant="20.5" id="TAT-sD-AYg"/>
                                                 <constraint firstItem="7YB-XW-nj1" firstAttribute="leading" secondItem="hO1-sr-AF1" secondAttribute="leading" constant="-15" id="Up7-qO-l7M"/>
+                                                <constraint firstItem="UhQ-1h-qa6" firstAttribute="top" secondItem="YZL-GH-pmt" secondAttribute="bottom" constant="27" id="bUj-Bj-z3P"/>
                                                 <constraint firstItem="dBS-X2-xHI" firstAttribute="leading" secondItem="WSU-nt-YWY" secondAttribute="leading" constant="7" id="eva-yj-auU"/>
                                                 <constraint firstItem="7YB-XW-nj1" firstAttribute="top" secondItem="HEt-Kx-Rrb" secondAttribute="topMargin" constant="32" id="ghd-3w-RVt"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="OC5-qR-JE8" secondAttribute="trailing" constant="120" id="hLg-Xx-3Dh"/>
                                                 <constraint firstItem="7DH-ym-x3h" firstAttribute="leading" secondItem="WSU-nt-YWY" secondAttribute="leading" constant="5" id="hok-ob-cd1"/>
+                                                <constraint firstItem="mkY-2G-DQV" firstAttribute="top" secondItem="hO1-sr-AF1" secondAttribute="bottom" constant="31.5" id="ibB-q9-Oux"/>
                                                 <constraint firstItem="4qV-Qy-mbK" firstAttribute="top" secondItem="OC5-qR-JE8" secondAttribute="bottom" constant="11" id="j8w-dO-n3f"/>
                                                 <constraint firstItem="4qV-Qy-mbK" firstAttribute="leading" secondItem="HEt-Kx-Rrb" secondAttribute="leadingMargin" constant="17" id="qxZ-ly-F4g"/>
                                                 <constraint firstItem="OC5-qR-JE8" firstAttribute="leading" secondItem="HEt-Kx-Rrb" secondAttribute="leadingMargin" constant="17" id="rFe-fH-vqk"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="UhQ-1h-qa6" secondAttribute="bottom" constant="20.5" id="swO-zL-ihi"/>
                                                 <constraint firstItem="WSU-nt-YWY" firstAttribute="top" secondItem="7DH-ym-x3h" secondAttribute="bottom" constant="15.5" id="vrQ-Td-XXa"/>
                                                 <constraint firstItem="hO1-sr-AF1" firstAttribute="top" secondItem="7YB-XW-nj1" secondAttribute="bottom" constant="14.5" id="vzi-zv-jCI"/>
                                                 <constraint firstItem="mkY-2G-DQV" firstAttribute="leading" secondItem="hO1-sr-AF1" secondAttribute="leading" id="xAO-9p-VsH"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.97647058823529409" green="0.95294117647058818" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <outlet property="credit1lab" destination="vcU-5i-7D8" id="qhG-sM-cOm"/>
                                             <outlet property="credit2lab" destination="0Mm-pg-8pz" id="D5m-Nb-o2r"/>
@@ -811,7 +812,7 @@
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="CGPA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ifc-cJ-VhI">
                                                 <rect key="frame" x="0.0" y="0.0" width="97.5" height="20.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -871,7 +872,7 @@
                                 </constraints>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.97647058819999999" green="0.95294117649999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Sbc-ud-a4g" firstAttribute="top" secondItem="dWp-ZM-upK" secondAttribute="bottom" constant="25" id="Alh-qh-HW2"/>
                             <constraint firstItem="2Rx-tK-M4U" firstAttribute="top" secondItem="Sbc-ud-a4g" secondAttribute="bottom" constant="28" id="GY2-KA-p7e"/>

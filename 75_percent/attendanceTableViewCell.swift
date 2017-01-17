@@ -19,6 +19,7 @@ class attendanceTableViewCell: UITableViewCell {
     @IBOutlet var subjectName: UILabel!
     @IBOutlet var subjectDate: UILabel!
     @IBOutlet var subjectAttenPercentage: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
