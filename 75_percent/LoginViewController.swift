@@ -11,10 +11,12 @@ import UIKit
 import SwiftyJSON
 import MBProgressHUD
 import KDCircularProgress
+import Foundation
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
     var opQueue = OperationQueue()
  
+    @IBOutlet var mainView: UIView!
 
     @IBOutlet var logInButton: UIButton!
     @IBOutlet var regNumber: UITextField!
@@ -47,7 +49,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         if (dateOfBirth.text?.characters.count)! != 10
         {
             
-            DOBCheck.text = "wrong"
+            DOBCheck.text = "Invalid format"
         }
         else {
             
@@ -58,7 +60,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 let index2 = str.index(str.startIndex, offsetBy: 7)
                 if str[index] != "-" || str[index2] != "-"
                 {    
-                    DOBCheck.text = "wrong"
+                    DOBCheck.text = "Invalid format"
                     
                     
                 }
@@ -128,7 +130,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                             
                             // Add the actions
                             
-                            alert.addAction(cancelAction)
+                            
                             alert.addAction(YES)
                             alert.addAction(cancelAction)
                             
@@ -665,8 +667,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+       // NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: .UIKeyboardWillShow, object: nil)
+      // NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: .UIKeyboardWillHide, object: nil)
+
+           let defaults = UserDefaults.standard
         
-        let defaults = UserDefaults.standard
        
         
        if let name = defaults.string(forKey: "userName") {
@@ -716,11 +721,30 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
   regNumber.delegate = self
         
 
+        /*NotificationCenter.default.addObserver(self, selector: #selector(LoginViewController.handleKeyBoardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         
+        NotificationCenter.default.addObserver(self, selector: #selector(LoginViewController.handleKeyBoardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)*/
         // Do any additional setup after loading the view.
     }
 
+    /*func handleKeyBoardWillShow(notification: Notification) {
+        
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            
+                self.view.frame.origin.y -= keyboardSize.height
+            
+        }
+    }
     
+    func handleKeyBoardWillHide(notification: Notification) {
+        
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            
+                self.view.frame.origin.y += keyboardSize.height
+            
+        }
+    }*/
+
     
     func textFieldDidChange(regNumber: UITextField) {
         regNumberCheck.text = "shit"

@@ -24,7 +24,7 @@ class FirstViewController: UIViewController, UITableViewDataSource,UITableViewDe
         cell.classesAttended.text = attendanceClassesAttended[indexPath.row]
         cell.subjectName.text = attendanceSubjectNames[indexPath.row]
         cell.subjectDate.text = attendanceDate[indexPath.row]
-        cell.subjectAttenPercentage.text = attendancePercentage[indexPath.row]
+        cell.subjectAttenPercentage.text = attendancePercentage[indexPath.row] + "%"
     //    OperationQueue.main.addOperation{
 
         if Double(attendanceClassesAttended[indexPath.row]) != nil && Double(attendanceClassesAttended[indexPath.row]) != 0

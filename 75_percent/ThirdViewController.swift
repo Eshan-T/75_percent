@@ -40,9 +40,9 @@ class ThirdViewController: UIViewController ,UITableViewDelegate, UITableViewDat
     
     let cell = tableView.dequeueReusableCell(withIdentifier: "CellCGPA", for: indexPath)       as! gradeTableViewCell
     
-    
+    var some =  numberOfSems - indexPath.row - 1
 
-       switch indexPath.row
+       switch some
         
        {
         
