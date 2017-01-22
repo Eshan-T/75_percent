@@ -22,6 +22,15 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var regNumber: UITextField!
     @IBOutlet var dateOfBirth: UITextField!
     
+    @IBAction func needDOB(_ sender: UITextField) {
+        
+        let datePickerView:UIDatePicker = UIDatePicker()
+        datePickerView.datePickerMode = UIDatePickerMode.date
+       dateOfBirth.inputView = datePickerView
+      
+        
+        // Make a dateFormatter in which format you would like to display the selected date in the textfield.
+             datePickerView.addTarget(self, action: #selector(datePickerValueChanged), for: UIControlEvents.valueChanged)}
     @IBAction func userTyping(_ sender: Any) {
         //regNoOfDigits = regNoOfDigits + 1
         if regNumber.text?.characters.count != 9
@@ -39,6 +48,21 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             regNumberCheck.text = ""
         }
     }
+    func datePickerValueChanged(sender:UIDatePicker) {
+        
+        let dateFormatter = DateFormatter()
+        
+        dateFormatter.dateStyle = DateFormatter.Style.medium
+        
+        dateFormatter.timeStyle = DateFormatter.Style.none
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        
+        dateOfBirth.text = dateFormatter.string(from: sender.date)
+        
+        
+        
+    }
+
     
     @IBAction func usertypingDOB(_ sender: Any) {
         
@@ -682,7 +706,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         let data = date?.data(using: .utf8)
         let alert = UIAlertController(title: "Let's make this faster", message: "Sign in as \(name) ? ", preferredStyle: UIAlertControllerStyle.alert)
         
-        let YES = UIAlertAction(title: "Yes", style: UIAlertActionStyle.default) {
+        let YES = UIAlertAction(title: "Yes. Update details and login", style: UIAlertActionStyle.default) {
             UIAlertAction in
             //self.process(data: data!)
              self.regNumber.text = defaults.string(forKey: "userRegNumber")
@@ -696,10 +720,18 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             UIAlertAction in
             NSLog("Cancel Pressed")
         }
-        
+        let YESBUT = UIAlertAction(title: "Upload saved copy(faster)", style: UIAlertActionStyle.default) {
+            UIAlertAction in
+            self.process(data: data!)
+            
+            
+            
+            
+        }
         // Add the actions
          alert.addAction(YES)
         alert.addAction(cancelAction)
+        alert.addAction(YESBUT)
         
         
         
