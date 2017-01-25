@@ -131,12 +131,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                         self.loginStatus.textColor = UIColor.red
                         MBProgressHUD.hideAllHUDs(for: self.view, animated:true)
                         let defaults = UserDefaults.standard
+                 
+                    
                         
-                        
-                        if let name = defaults.string(forKey: "userRegNumber"){
-                            var stringData = defaults.string(forKey: "userData")
+                        if defaults.string(forKey: "userRegNumber") != nil{
+                            let stringData = defaults.string(forKey: "userData")
                             let dataSaved = stringData?.data(using: .utf8)
-                            var date = defaults.string(forKey: "timeSaved")
+                            let date = defaults.string(forKey: "timeSaved")
                             let alert = UIAlertController(title: "Alert", message: "You seem to be offline. We have a cached copy updated on \(date!). Want to load that? ", preferredStyle: UIAlertControllerStyle.alert)
                             
                             let YES = UIAlertAction(title: "YES", style: UIAlertActionStyle.default) {
@@ -205,10 +206,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     let defaults = UserDefaults.standard
                     
                     
-                    if let name = defaults.string(forKey: "userRegNumber"){
-                      var stringData = defaults.string(forKey: "userData")
+                    if defaults.string(forKey: "userRegNumber") != nil{
+                      let stringData = defaults.string(forKey: "userData")
                         let dataSaved = stringData?.data(using: .utf8)
-                        var date = defaults.string(forKey: "timeSaved")
+                        let date = defaults.string(forKey: "timeSaved")
                     let alert = UIAlertController(title: "Alert", message: "Websis seems to be down. We have a cached copy updated on \(date). Want to load that? ", preferredStyle: UIAlertControllerStyle.alert)
                     
                     let YES = UIAlertAction(title: "YES", style: UIAlertActionStyle.default) {
@@ -247,10 +248,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     let defaults = UserDefaults.standard
                     
                     
-                    if let name = defaults.string(forKey: "userRegNumber"){
-                        var stringData = defaults.string(forKey: "userData")
+                    if defaults.string(forKey: "userRegNumber") != nil{
+                        let stringData = defaults.string(forKey: "userData")
                         let dataSaved = stringData?.data(using: .utf8)
-                        var date = defaults.string(forKey: "timeSaved")
+                        let date = defaults.string(forKey: "timeSaved")
                         let alert = UIAlertController(title: "Error", message: "Encuontered an error. We have a cached copy updated on \(date!). Want to load that? ", preferredStyle: UIAlertControllerStyle.alert)
                         
                         let YES = UIAlertAction(title: "YES", style: UIAlertActionStyle.default) {
@@ -289,10 +290,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 defaults.set(responseString, forKey: "userData")
                 defaults.set(self.regNumber.text, forKey: "userRegNumber")
                 defaults.set(self.dateOfBirth.text, forKey: "userDOB")
-                var currentdate = Date()
+                let currentdate = Date()
                 let dateFormatter = DateFormatter()
                 dateFormatter.dateFormat = "dd MMM yyyy HH:mm:ss "
-                var newDate = dateFormatter.string(from: currentdate)
+                let newDate = dateFormatter.string(from: currentdate)
                 defaults.set(newDate , forKey: "timeSaved")
 
             }
@@ -320,12 +321,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             defaults.set(studName, forKey: "userName")
             studBranch = json["User Data"]["Branch"].string!
             studRegNo = json["User Data"]["Registration Number"].string!
-            var crap: Array = json["Attendance"].array!
+            let crap: Array = json["Attendance"].array!
             attendanceSubjectsNumber = crap.count
             
             //for attendance
             for index in 0...(crap.count-1)
-            {  var temp: String = json["Attendance"][index]["Name"].string!
+            {  let temp: String = json["Attendance"][index]["Name"].string!
                 
                 attendanceSubjectNames.append(temp)
                 attendanceClassesTaken.append(json["Attendance"][index]["Classes"].string!)
@@ -337,9 +338,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             }
             
             //for marks
-            var marksview: Dictionary = json["Scores"].dictionary!
+            let marksview: Dictionary = json["Scores"].dictionary!
          if marksview.count > 0
-         { var tempp: Array = json["Scores"]["Internal Assesment 1"].array!
+         { let tempp: Array = json["Scores"]["Internal Assesment 1"].array!
             numberOfInternallyMarkedSubjects = tempp.count
             numberOfAssessments = marksview.count
             if numberOfAssessments == 1
@@ -388,11 +389,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             
             //for grade stats
             
-            var temp3: Dictionary = json["Grades"]["Details"].dictionary!
+            let temp3: Dictionary = json["Grades"]["Details"].dictionary!
             numberOfSems =  temp3.count
             switch numberOfSems{
             case 8 :
-                var sem8noOfSubs = json["Grades"]["Details"]["Semester 8"]["Grades"].count
+                let sem8noOfSubs = json["Grades"]["Details"]["Semester 8"]["Grades"].count
                 for index in 0...sem8noOfSubs-1
                 {
                     sem8Subjects.append(json["Grades"]["Details"]["Semester 8"]["Grades"][index]["Subject"].string!)
@@ -407,7 +408,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 sem8Credits = json["Grades"]["Details"]["Semester 8"]["NoOfCredits"].string!
                 sumOfGpas = sumOfGpas + Double(sem8GPA)!
                 sumOfCredits = sumOfCredits + Int(sem8Credits)!
-                var sem8GPADouble = Double(sem8GPA)!
+                let sem8GPADouble = Double(sem8GPA)!
                 if sem8GPADouble > maxGPA
                 {
                     maxGPA = sem8GPADouble
@@ -424,7 +425,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 }
                 fallthrough
             case 7 :
-                var sem7noOfSubs = json["Grades"]["Details"]["Semester 7"]["Grades"].count
+                let sem7noOfSubs = json["Grades"]["Details"]["Semester 7"]["Grades"].count
                 for index in 0...sem7noOfSubs-1
                 {
                     sem7Subjects.append(json["Grades"]["Details"]["Semester 7"]["Grades"][index]["Subject"].string!)
@@ -440,7 +441,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 sumOfGpas = sumOfGpas + Double(sem7GPA)!
                 sumOfCredits = sumOfCredits + Int(sem7Credits)!
                 
-                var sem7GPADouble = Double(sem7GPA)!
+                let sem7GPADouble = Double(sem7GPA)!
                 if sem7GPADouble > maxGPA
                 {
                     maxGPA = sem7GPADouble
@@ -460,7 +461,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 fallthrough
                 
             case 6 :
-                var sem6noOfSubs = json["Grades"]["Details"]["Semester 6"]["Grades"].count
+                let sem6noOfSubs = json["Grades"]["Details"]["Semester 6"]["Grades"].count
                 for index in 0...sem6noOfSubs-1
                 {
                     sem6Subjects.append(json["Grades"]["Details"]["Semester 6"]["Grades"][index]["Subject"].string!)
@@ -474,7 +475,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 
                 sumOfGpas = sumOfGpas + Double(sem6GPA)!
                 sumOfCredits = sumOfCredits + Int(sem6Credits)!
-                var sem6GPADouble = Double(sem6GPA)!
+                let sem6GPADouble = Double(sem6GPA)!
                 if sem6GPADouble > maxGPA
                 {
                     maxGPA = sem6GPADouble
@@ -494,7 +495,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 fallthrough
                 
             case 5 :
-                var sem5noOfSubs = json["Grades"]["Details"]["Semester 5"]["Grades"].count
+                let sem5noOfSubs = json["Grades"]["Details"]["Semester 5"]["Grades"].count
                 for index in 0...sem5noOfSubs-1
                 {
                     sem5Subjects.append(json["Grades"]["Details"]["Semester 5"]["Grades"][index]["Subject"].string!)
@@ -508,7 +509,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 sem5Credits = json["Grades"]["Details"]["Semester 5"]["NoOfCredits"].string!
                 sumOfGpas = sumOfGpas + Double(sem5GPA)!
                 sumOfCredits = sumOfCredits + Int(sem5Credits)!
-                var sem5GPADouble = Double(sem5GPA)!
+                let sem5GPADouble = Double(sem5GPA)!
                 if sem5GPADouble > maxGPA
                 {
                     maxGPA = sem5GPADouble
@@ -528,7 +529,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 fallthrough
                 
             case 4 :
-                var sem4noOfSubs = json["Grades"]["Details"]["Semester 4"]["Grades"].count
+                let sem4noOfSubs = json["Grades"]["Details"]["Semester 4"]["Grades"].count
                 for index in 0...sem4noOfSubs-1
                 {
                     sem4Subjects.append(json["Grades"]["Details"]["Semester 4"]["Grades"][index]["Subject"].string!)
@@ -542,7 +543,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 sem4Credits = json["Grades"]["Details"]["Semester 4"]["NoOfCredits"].string!
                 sumOfGpas = sumOfGpas + Double(sem4GPA)!
                 sumOfCredits = sumOfCredits + Int(sem4Credits)!
-                var sem4GPADouble = Double(sem4GPA)!
+                let sem4GPADouble = Double(sem4GPA)!
                 if sem4GPADouble > maxGPA
                 {
                     maxGPA = sem4GPADouble
@@ -561,7 +562,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 
                 fallthrough
             case 3 :
-                var sem3noOfSubs = json["Grades"]["Details"]["Semester 3"]["Grades"].count
+                let sem3noOfSubs = json["Grades"]["Details"]["Semester 3"]["Grades"].count
                 for index in 0...sem3noOfSubs-1
                 {
                     sem3Subjects.append(json["Grades"]["Details"]["Semester 3"]["Grades"][index]["Subject"].string!)
@@ -575,7 +576,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 sem3Credits = json["Grades"]["Details"]["Semester 3"]["NoOfCredits"].string!
                 sumOfGpas = sumOfGpas + Double(sem3GPA)!
                 sumOfCredits = sumOfCredits + Int(sem3Credits)!
-                var sem3GPADouble = Double(sem3GPA)!
+                let sem3GPADouble = Double(sem3GPA)!
                 if sem3GPADouble > maxGPA
                 {
                     maxGPA = sem3GPADouble
@@ -595,7 +596,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 fallthrough
                 
             case 2:
-                var sem2noOfSubs = json["Grades"]["Details"]["Semester 2"]["Grades"].count
+                let sem2noOfSubs = json["Grades"]["Details"]["Semester 2"]["Grades"].count
                 for index in 0...sem2noOfSubs-1
                 {
                     sem2Subjects.append(json["Grades"]["Details"]["Semester 2"]["Grades"][index]["Subject"].string!)
@@ -609,7 +610,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 sem2Credits = json["Grades"]["Details"]["Semester 2"]["NoOfCredits"].string!
                 sumOfGpas = sumOfGpas + Double(sem2GPA)!
                 sumOfCredits = sumOfCredits + Int(sem2Credits)!
-                var sem2GPADouble = Double(sem2GPA)!
+                let sem2GPADouble = Double(sem2GPA)!
                 if sem2GPADouble > maxGPA
                 {
                     maxGPA = sem2GPADouble
@@ -629,7 +630,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 fallthrough
                 
           case 1:
-                var sem1noOfSubs = json["Grades"]["Details"]["Semester 1"]["Grades"].count
+                let sem1noOfSubs = json["Grades"]["Details"]["Semester 1"]["Grades"].count
                 for index in 0...sem1noOfSubs-1
                 {
                     sem1Subjects.append(json["Grades"]["Details"]["Semester 1"]["Grades"][index]["Subject"].string!)
@@ -643,7 +644,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 sem1Credits = json["Grades"]["Details"]["Semester 1"]["NoOfCredits"].string!
                 sumOfGpas = sumOfGpas + Double(sem1GPA)!
                 sumOfCredits = sumOfCredits + Int(sem1Credits)!
-                var sem1GPADouble = Double(sem1GPA)!
+                let sem1GPADouble = Double(sem1GPA)!
                 if sem1GPADouble > maxGPA
                 {
                     maxGPA = sem1GPADouble
@@ -701,7 +702,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
        if let name = defaults.string(forKey: "userName") {
         print("lol")
         
-       let dataSaved = name.data(using: .utf8)
+       _ = name.data(using: .utf8)
         let date = defaults.string(forKey: "userData")
         let data = date?.data(using: .utf8)
         let alert = UIAlertController(title: "Let's make this faster", message: "Sign in as \(name) ? ", preferredStyle: UIAlertControllerStyle.alert)
