@@ -16,6 +16,8 @@ class FirstViewController: UIViewController, UITableViewDataSource,UITableViewDe
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CellAttendance", for: indexPath)       as! attendanceTableViewCell
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 140
         if Double(attendanceClassesAttended[indexPath.row]) != nil && Double(attendanceClassesAttended[indexPath.row]) != 0
         {
             angle = Double(attendanceClassesAttended[indexPath.row])!/Double(attendanceClassesTaken[indexPath.row])! * 360}

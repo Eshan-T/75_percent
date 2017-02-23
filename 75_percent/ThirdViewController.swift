@@ -5,8 +5,26 @@
 //  Created by Eshan trivedi on 21/12/16.
 //  Copyright © 2016 ET. All rights reserved.
 //
-
+extension String {
+    func capitalizingFirstLetter() -> String {
+        let first = String(characters.prefix(1)).capitalized
+        let other = String(characters.dropFirst())
+        return first + other
+    }
+    
+    mutating func capitalizeFirstLetter() {
+        self = self.capitalizingFirstLetter()
+    }
+}
 import UIKit
+import Foundation
+extension Double {
+    /// Rounds the double to decimal places value
+    func roundTo(places:Int) -> Double {
+        let divisor = pow(10.0, Double(places))
+        return (self * divisor).rounded() / divisor
+    }
+}
 
 class ThirdViewController: UIViewController ,UITableViewDelegate, UITableViewDataSource
 {
@@ -55,13 +73,13 @@ class ThirdViewController: UIViewController ,UITableViewDelegate, UITableViewDat
 
         if sem8Subjects.count == 7
         {
-            cell.sub1lab.text = sem8Subjects[0]
-            cell.sub2lab.text = sem8Subjects[1]
-            cell.sub3lab.text = sem8Subjects[2]
-            cell.sub4lab.text = sem8Subjects[3]
-            cell.sub5lab.text = sem8Subjects[4]
-            cell.sub6lab.text = sem8Subjects[5]
-            cell.sub7lab.text = sem8Subjects[6]
+            cell.sub1lab.text = sem8Subjects[0].capitalizingFirstLetter()
+            cell.sub2lab.text = sem8Subjects[1].capitalizingFirstLetter()
+            cell.sub3lab.text = sem8Subjects[2].capitalizingFirstLetter()
+            cell.sub4lab.text = sem8Subjects[3].capitalizingFirstLetter()
+            cell.sub5lab.text = sem8Subjects[4].capitalizingFirstLetter()
+            cell.sub6lab.text = sem8Subjects[5].capitalizingFirstLetter()
+            cell.sub7lab.text = sem8Subjects[6].capitalizingFirstLetter()
             cell.sub8lab.text = " "
             cell.sub9lab.text = " "
             
@@ -89,14 +107,14 @@ class ThirdViewController: UIViewController ,UITableViewDelegate, UITableViewDat
         }
             
         else if sem8Subjects.count == 8{
-            cell.sub1lab.text = sem8Subjects[0]
-            cell.sub2lab.text = sem8Subjects[1]
-            cell.sub3lab.text = sem8Subjects[2]
-            cell.sub4lab.text = sem8Subjects[3]
-            cell.sub5lab.text = sem8Subjects[4]
-            cell.sub6lab.text = sem8Subjects[5]
-            cell.sub7lab.text = sem8Subjects[6]
-            cell.sub8lab.text = sem8Subjects[7]
+            cell.sub1lab.text = sem8Subjects[0].capitalizingFirstLetter()
+            cell.sub2lab.text = sem8Subjects[1].capitalizingFirstLetter()
+            cell.sub3lab.text = sem8Subjects[2].capitalizingFirstLetter()
+            cell.sub4lab.text = sem8Subjects[3].capitalizingFirstLetter()
+            cell.sub5lab.text = sem8Subjects[4].capitalizingFirstLetter()
+            cell.sub6lab.text = sem8Subjects[5].capitalizingFirstLetter()
+            cell.sub7lab.text = sem8Subjects[6].capitalizingFirstLetter()
+            cell.sub8lab.text = sem8Subjects[7].capitalizingFirstLetter()
             cell.sub9lab.text = " "
             
             cell.grade1lab.text = sem8Grades[0]
@@ -123,15 +141,15 @@ class ThirdViewController: UIViewController ,UITableViewDelegate, UITableViewDat
         }
             
         else if sem8Subjects.count == 9{
-            cell.sub1lab.text = sem8Subjects[0]
-            cell.sub2lab.text = sem8Subjects[1]
-            cell.sub3lab.text = sem8Subjects[2]
-            cell.sub4lab.text = sem8Subjects[3]
-            cell.sub5lab.text = sem8Subjects[4]
-            cell.sub6lab.text = sem8Subjects[5]
-            cell.sub7lab.text = sem8Subjects[6]
-            cell.sub8lab.text = sem8Subjects[7]
-            cell.sub9lab.text = sem8Subjects[8]
+            cell.sub1lab.text = sem8Subjects[0].capitalizingFirstLetter()
+            cell.sub2lab.text = sem8Subjects[1].capitalizingFirstLetter()
+            cell.sub3lab.text = sem8Subjects[2].capitalizingFirstLetter()
+            cell.sub4lab.text = sem8Subjects[3].capitalizingFirstLetter()
+            cell.sub5lab.text = sem8Subjects[4].capitalizingFirstLetter()
+            cell.sub6lab.text = sem8Subjects[5].capitalizingFirstLetter()
+            cell.sub7lab.text = sem8Subjects[6].capitalizingFirstLetter()
+            cell.sub8lab.text = sem8Subjects[7].capitalizingFirstLetter()
+            cell.sub9lab.text = sem8Subjects[8].capitalizingFirstLetter()
             
             cell.grade1lab.text = sem8Grades[0]
             cell.grade2lab.text = sem8Grades[1]
@@ -1302,13 +1320,13 @@ class ThirdViewController: UIViewController ,UITableViewDelegate, UITableViewDat
         
         if sem1Subjects.count == 7
         {
-            cell.sub1lab.text = sem1Subjects[0]
-            cell.sub2lab.text = sem1Subjects[1]
-            cell.sub3lab.text = sem1Subjects[2]
-            cell.sub4lab.text = sem1Subjects[3]
-            cell.sub5lab.text = sem1Subjects[4]
-            cell.sub6lab.text = sem1Subjects[5]
-            cell.sub7lab.text = sem1Subjects[6]
+            cell.sub1lab.text = sem1Subjects[0].capitalizingFirstLetter()
+            cell.sub2lab.text = sem1Subjects[1].capitalizingFirstLetter()
+            cell.sub3lab.text = sem1Subjects[2].capitalizingFirstLetter()
+            cell.sub4lab.text = sem1Subjects[3].capitalizingFirstLetter()
+            cell.sub5lab.text = sem1Subjects[4].capitalizingFirstLetter()
+            cell.sub6lab.text = sem1Subjects[5].capitalizingFirstLetter()
+            cell.sub7lab.text = sem1Subjects[6].capitalizingFirstLetter()
             cell.sub8lab.text = " "
             cell.sub9lab.text = " "
             
@@ -1336,14 +1354,14 @@ class ThirdViewController: UIViewController ,UITableViewDelegate, UITableViewDat
         }
         
         else if sem1Subjects.count == 8{
-            cell.sub1lab.text = sem1Subjects[0]
-            cell.sub2lab.text = sem1Subjects[1]
-            cell.sub3lab.text = sem1Subjects[2]
-            cell.sub4lab.text = sem1Subjects[3]
-            cell.sub5lab.text = sem1Subjects[4]
-            cell.sub6lab.text = sem1Subjects[5]
-            cell.sub7lab.text = sem1Subjects[6]
-            cell.sub8lab.text = sem1Subjects[7]
+            cell.sub1lab.text = sem1Subjects[0].capitalizingFirstLetter()
+            cell.sub2lab.text = sem1Subjects[1].capitalizingFirstLetter()
+            cell.sub3lab.text = sem1Subjects[2].capitalizingFirstLetter()
+            cell.sub4lab.text = sem1Subjects[3].capitalizingFirstLetter()
+            cell.sub5lab.text = sem1Subjects[4].capitalizingFirstLetter()
+            cell.sub6lab.text = sem1Subjects[5].capitalizingFirstLetter()
+            cell.sub7lab.text = sem1Subjects[6].capitalizingFirstLetter()
+            cell.sub8lab.text = sem1Subjects[7].capitalizingFirstLetter()
             cell.sub9lab.text = " "
             
             cell.grade1lab.text = sem1Grades[0]
@@ -1370,15 +1388,15 @@ class ThirdViewController: UIViewController ,UITableViewDelegate, UITableViewDat
         }
         
         else if sem1Subjects.count == 9{
-            cell.sub1lab.text = sem1Subjects[0]
-            cell.sub2lab.text = sem1Subjects[1]
-            cell.sub3lab.text = sem1Subjects[2]
-            cell.sub4lab.text = sem1Subjects[3]
-            cell.sub5lab.text = sem1Subjects[4]
-            cell.sub6lab.text = sem1Subjects[5]
-            cell.sub7lab.text = sem1Subjects[6]
-            cell.sub8lab.text = sem1Subjects[7]
-            cell.sub9lab.text = sem1Subjects[8]
+            cell.sub1lab.text = sem1Subjects[0].capitalizingFirstLetter()
+            cell.sub2lab.text = sem1Subjects[1].capitalizingFirstLetter()
+            cell.sub3lab.text = sem1Subjects[2].capitalizingFirstLetter()
+            cell.sub4lab.text = sem1Subjects[3].capitalizingFirstLetter()
+            cell.sub5lab.text = sem1Subjects[4].capitalizingFirstLetter()
+            cell.sub6lab.text = sem1Subjects[5].capitalizingFirstLetter()
+            cell.sub7lab.text = sem1Subjects[6].capitalizingFirstLetter()
+            cell.sub8lab.text = sem1Subjects[7].capitalizingFirstLetter()
+            cell.sub9lab.text = sem1Subjects[8].capitalizingFirstLetter()
             
             cell.grade1lab.text = sem1Grades[0]
             cell.grade2lab.text = sem1Grades[1]

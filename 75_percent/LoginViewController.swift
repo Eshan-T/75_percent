@@ -676,7 +676,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
              print(attendancePercentage)
              print(attendanceDate)*/
             
-            CGPA = sumOfGpas/Double(numberOfSems)
+            CGPA = (sumOfGpas/Double(numberOfSems)).roundTo(places: 2)
+        
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5){
                 MBProgressHUD.hideAllHUDs(for: self.view, animated:true)
